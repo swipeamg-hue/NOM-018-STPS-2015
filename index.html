@@ -50,13 +50,19 @@
       text-shadow: none !important;
     }
 
-    .reveal h1 { font-size: 2.8em !important; margin-bottom: 20px !important; }
-    .reveal h2 { font-size: 1.8em !important; margin-bottom: 30px !important; }
+    .reveal h1 { font-size: 2.4em !important; margin-bottom: 10px !important; }
+    .reveal h2 { font-size: 1.55em !important; margin-bottom: 12px !important; }
+    /* Ensure slides don't overflow viewport */
+    .reveal .slides section {
+      box-sizing: border-box;
+      padding: 10px 30px !important;
+      overflow: hidden;
+    }
 
     /* --- Maquetación en Columnas --- */
     .grid-2-cols {
       display: flex;
-      gap: 40px;
+      gap: 20px;
       text-align: left;
       width: 100%;
       box-sizing: border-box;
@@ -66,10 +72,10 @@
     .hds-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 12px;
       width: 100%;
       box-sizing: border-box;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     /* --- Animaciones Micro --- */
@@ -104,7 +110,7 @@
       justify-content: center;
       width: 100%;
     }
-    .icon-container-main { margin-bottom: 30px; }
+    .icon-container-main { margin-bottom: 15px; }
 
     /* Diapositiva 2: Ecuación Química */
     .equation-container {
@@ -119,35 +125,35 @@
       flex: 1;
       background: var(--color-surface);
       border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 30px 20px;
+      padding: 18px 12px;
       border-radius: 12px;
       display: flex;
       flex-direction: column;
       align-items: center;
       transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     }
-    .equation-term:hover { transform: translateY(-5px); border-color: rgba(255, 255, 255, 0.15); }
+    .equation-term:hover { transform: translateY(-3px); border-color: rgba(255, 255, 255, 0.15); }
     .equation-term.danger-border { border: 1px solid var(--color-danger); background: rgba(231, 76, 60, 0.05); }
     .equation-operator { display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); font-weight: bold; }
-    .equation-term .label { font-size: 1.1em; font-weight: 600; margin-top: 10px; }
-    .equation-term .desc { font-size: 0.75em; color: var(--color-text-muted); margin-top: 5px; }
+    .equation-term .label { font-size: 1em; font-weight: 600; margin-top: 8px; }
+    .equation-term .desc { font-size: 0.7em; color: var(--color-text-muted); margin-top: 4px; }
 
     /* Diapositiva 3: Reglas */
     .rules-card {
       flex: 1;
       background: var(--color-surface);
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      padding: 14px 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .rules-header { display: flex; align-items: center; gap: 15px; padding-bottom: 15px; margin-bottom: 20px; }
-    .rules-header h3 { margin: 0 !important; font-size: 1.3em !important; }
-    .style-icon { font-size: 1.5em; }
+    .rules-header { display: flex; align-items: center; gap: 10px; padding-bottom: 10px; margin-bottom: 10px; }
+    .rules-header h3 { margin: 0 !important; font-size: 1.1em !important; }
+    .style-icon { font-size: 1.2em; }
     .rules-list { list-style: none; padding: 0; margin: 0; }
-    .rules-list li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px; font-size: 0.8em; line-height: 1.4; color: var(--color-text); }
-    .rules-list li i { margin-top: 3px; font-size: 1.1em; }
+    .rules-list li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 0.75em; line-height: 1.35; color: var(--color-text); }
+    .rules-list li i { margin-top: 2px; font-size: 1em; }
     .text-primary { color: var(--color-primary); }
     .text-success { color: var(--color-success); }
 
@@ -164,9 +170,9 @@
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
     .alert-card:hover { transform: translateY(-5px); }
-    .alert-header { padding: 20px; font-size: 1.4em; font-weight: 800; display: flex; align-items: center; gap: 12px; letter-spacing: 1px; }
-    .alert-body { padding: 25px; background: var(--color-surface); flex: 1; font-size: 0.8em; line-height: 1.5; }
-    .alert-body p { margin: 0 0 15px 0 !important; }
+    .alert-header { padding: 14px 18px; font-size: 1.3em; font-weight: 800; display: flex; align-items: center; gap: 10px; letter-spacing: 1px; }
+    .alert-body { padding: 16px 18px; background: var(--color-surface); flex: 1; font-size: 0.78em; line-height: 1.45; }
+    .alert-body p { margin: 0 0 10px 0 !important; }
     .alert-body p:last-child { margin: 0 !important; }
     .example-text { border-left: 3px solid rgba(255, 255, 255, 0.2); padding-left: 10px; font-style: italic; color: var(--color-text-muted); }
     .danger-card { border-color: rgba(231, 76, 60, 0.3); }
@@ -181,44 +187,44 @@
       flex: 1;
       background: var(--color-surface);
       border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      padding: 18px 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.05);
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
     }
-    .phrase-card h3 { margin: 15px 0 5px 0 !important; font-size: 1.3em !important; }
-    .phrase-card .sub { font-size: 0.8em; color: var(--color-text-muted); margin-bottom: 15px; display: block; }
-    .phrase-card p { font-size: 0.8em; line-height: 1.5; margin-bottom: 20px !important; text-align: left; }
-    .phrase-icon-wrapper { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .phrase-card h3 { margin: 8px 0 3px 0 !important; font-size: 1.15em !important; }
+    .phrase-card .sub { font-size: 0.75em; color: var(--color-text-muted); margin-bottom: 8px; display: block; }
+    .phrase-card p { font-size: 0.75em; line-height: 1.4; margin-bottom: 10px !important; text-align: left; }
+    .phrase-icon-wrapper { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .circle-h { background: rgba(230, 126, 34, 0.1); border: 1px solid rgba(230, 126, 34, 0.3); }
     .circle-p { background: rgba(46, 204, 113, 0.1); border: 1px solid rgba(46, 204, 113, 0.3); }
-    .phrase-example { background: rgba(0, 0, 0, 0.2); border: 1px dashed rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 12px; font-size: 0.75em; text-align: left; line-height: 1.4; width: 100%; box-sizing: border-box; }
+    .phrase-example { background: rgba(0, 0, 0, 0.2); border: 1px dashed rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 10px; font-size: 0.72em; text-align: left; line-height: 1.35; width: 100%; box-sizing: border-box; }
     .phrase-example strong { color: #fff; }
-    .border-h { border-top: 4px solid #e67e22; }
-    .border-p { border-top: 4px solid #2ecc71; }
+    .border-h { border-top: 3px solid #e67e22; }
+    .border-p { border-top: 3px solid #2ecc71; }
 
     /* Diapositiva 7: Grid HDS */
     .hds-card {
       background: var(--color-surface);
-      border-radius: 12px;
-      padding: 20px;
+      border-radius: 10px;
+      padding: 14px 12px;
       border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       transition: all 0.3s ease;
     }
-    .hds-card:hover { transform: translateY(-5px); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); }
-    .hds-card h4 { margin: 15px 0 5px 0 !important; font-size: 1.1em !important; color: #fff !important; }
-    .hds-card h5 { margin: 0 0 10px 0 !important; font-size: 0.9em !important; color: var(--color-text-muted) !important; font-weight: 500 !important; }
-    .hds-card p { font-size: 0.75em; line-height: 1.4; margin: 0 !important; color: var(--color-text-muted); }
-    .hds-icon-box { width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid; }
-    .hds-icon-box i { font-size: 1.5em; }
+    .hds-card:hover { transform: translateY(-3px); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); }
+    .hds-card h4 { margin: 8px 0 3px 0 !important; font-size: 1em !important; color: #fff !important; }
+    .hds-card h5 { margin: 0 0 6px 0 !important; font-size: 0.82em !important; color: var(--color-text-muted) !important; font-weight: 500 !important; }
+    .hds-card p { font-size: 0.7em; line-height: 1.35; margin: 0 !important; color: var(--color-text-muted); }
+    .hds-icon-box { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid; }
+    .hds-icon-box i { font-size: 1.2em; }
 
     /* Diapositiva 8: Ficha SWIPE + Cronómetro */
     .product-image-container {
@@ -316,21 +322,21 @@
     }
 
     /* Diapositiva 9: Reglas Finales */
-    .rules-final-container { display: flex; flex-direction: column; gap: 20px; max-width: 800px; margin: 0 auto; text-align: left; }
+    .rules-final-container { display: flex; flex-direction: column; gap: 12px; max-width: 820px; margin: 0 auto; text-align: left; }
     .rules-final-item {
       display: flex;
-      gap: 20px;
+      gap: 14px;
       background: var(--color-surface);
-      padding: 20px;
-      border-radius: 12px;
+      padding: 13px 16px;
+      border-radius: 10px;
       border: 1px solid rgba(46, 204, 113, 0.05);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       align-items: center;
       transition: all 0.3s ease;
     }
-    .rules-final-num { font-family: var(--font-main); font-size: 1.8em; font-weight: 800; color: var(--color-success); width: 50px; height: 50px; border-radius: 50%; background: rgba(46, 204, 113, 0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .rules-final-content h4 { margin: 0 0 5px 0 !important; font-size: 1.1em !important; color: #fff !important; }
-    .rules-final-content p { margin: 0 !important; font-size: 0.8em; color: var(--color-text-muted); line-height: 1.4; }
+    .rules-final-num { font-family: var(--font-main); font-size: 1.4em; font-weight: 800; color: var(--color-success); width: 40px; height: 40px; border-radius: 50%; background: rgba(46, 204, 113, 0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .rules-final-content h4 { margin: 0 0 3px 0 !important; font-size: 1em !important; color: #fff !important; }
+    .rules-final-content p { margin: 0 !important; font-size: 0.75em; color: var(--color-text-muted); line-height: 1.35; }
   </style>
 </head>
 <body>
@@ -356,8 +362,8 @@
 
       <!-- Diapositiva 2: ¿Limpiar o arriesgar? -->
       <section data-background-gradient="radial-gradient(circle, #221515 0%, #0a0707 100%)">
-        <h2 style="font-size: 1.8em; color: var(--color-text);">¿Limpiar mejor o arriesgar tu vida?</h2>
-        <p style="font-size: 0.9em; color: var(--color-text-muted); margin-bottom: 40px;">Una mezcla común puede resultar fatal. La HDS de SWIPE lo confirma: <em>incompatible con hipoclorito de sodio.</em></p>
+        <h2 style="font-size: 1.55em; color: var(--color-text);">¿Limpiar mejor o arriesgar tu vida?</h2>
+        <p style="font-size: 0.82em; color: var(--color-text-muted); margin-bottom: 20px;">Una mezcla común puede resultar fatal. La HDS de SWIPE lo confirma: <em>incompatible con hipoclorito de sodio.</em></p>
         
         <div class="equation-container">
           <div class="equation-term">
@@ -389,8 +395,8 @@
 
       <!-- Diapositiva 3: Reglas del Juego -->
       <section data-background-gradient="radial-gradient(circle, #17222b 0%, #0a0e12 100%)">
-        <h2 style="font-size: 1.8em; margin-bottom: 20px;">Las Reglas del Juego</h2>
-        <p style="font-size: 0.9em; color: var(--color-text-muted); margin-bottom: 40px;">Responsabilidades compartidas en el manejo seguro de sustancias químicas.</p>
+        <h2 style="font-size: 1.55em; margin-bottom: 8px;">Las Reglas del Juego</h2>
+        <p style="font-size: 0.8em; color: var(--color-text-muted); margin-bottom: 14px;">Responsabilidades compartidas en el manejo seguro de sustancias químicas.</p>
         
         <div class="grid-2-cols" style="gap: 40px;">
           <div class="rules-card">
@@ -448,8 +454,8 @@
           <div class="earth-container floating">
             <i class="fa-solid fa-earth-americas fa-4x" style="color: var(--color-primary); filter: drop-shadow(0 0 20px rgba(52, 152, 219, 0.5));"></i>
           </div>
-          <h2 style="font-size: 1.8em; margin-top: 30px; margin-bottom: 20px;">Un mundo, un solo idioma</h2>
-          <p style="font-size: 1.05em; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.5; color: var(--color-text-muted);">
+          <h2 style="font-size: 1.55em; margin-top: 15px; margin-bottom: 15px;">Un mundo, un solo idioma</h2>
+          <p style="font-size: 0.95em; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.45; color: var(--color-text-muted);">
             El <strong style="color: var(--color-primary);">Sistema Globalmente Armonizado (SGA)</strong> homologa la clasificación y etiquetado de productos químicos a nivel internacional. SWIPE se comercializa en más de <strong style="color: #fff;">25 países</strong>; sus pictogramas y frases de seguridad son idénticos en todos ellos.
           </p>
         </div>
@@ -460,8 +466,8 @@
 
       <!-- Diapositiva 5: Palabras de Advertencia -->
       <section data-background-gradient="radial-gradient(circle, #1c1f24 0%, #0a0d10 100%)">
-        <h2 style="font-size: 1.8em; margin-bottom: 20px;">Palabras de Advertencia</h2>
-        <p style="font-size: 0.9em; color: var(--color-text-muted); margin-bottom: 40px;">Indicadores visuales rápidos sobre el nivel de peligro de la sustancia.</p>
+        <h2 style="font-size: 1.55em; margin-bottom: 10px;">Palabras de Advertencia</h2>
+        <p style="font-size: 0.82em; color: var(--color-text-muted); margin-bottom: 18px;">Indicadores visuales rápidos sobre el nivel de peligro de la sustancia.</p>
         
         <div class="grid-2-cols" style="gap: 40px; justify-content: center;">
           <div class="alert-card danger-card fragment">
@@ -493,7 +499,7 @@
 
       <!-- Diapositiva 6: Frases H y P -->
       <section data-background-gradient="radial-gradient(circle, #131d27 0%, #07090b 100%)">
-        <h2 style="font-size: 1.8em; margin-bottom: 30px;">Frases H y P</h2>
+        <h2 style="font-size: 1.55em; margin-bottom: 14px;">Frases H y P</h2>
         <div class="grid-2-cols" style="gap: 40px;">
           <div class="phrase-card border-h">
             <div class="phrase-icon-wrapper circle-h">
@@ -528,8 +534,8 @@
       
       <!-- Diapositiva 7: Las 4 Secciones Críticas -->
       <section data-background-gradient="radial-gradient(circle, #161a24 0%, #080a0f 100%)">
-        <h2 style="font-size: 1.8em; margin-bottom: 15px;">Las 4 Secciones Críticas de la HDS</h2>
-        <p style="font-size: 0.85em; color: var(--color-text-muted); margin-bottom: 30px;">La HDS de SWIPE tiene 16 secciones. En emergencias, estas 4 son vitales.</p>
+        <h2 style="font-size: 1.55em; margin-bottom: 8px;">Las 4 Secciones Críticas de la HDS</h2>
+        <p style="font-size: 0.78em; color: var(--color-text-muted); margin-bottom: 10px;">La HDS de SWIPE tiene 16 secciones. En emergencias, estas 4 son vitales.</p>
         
         <div class="hds-grid">
           <div class="hds-card">
@@ -667,7 +673,7 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
       
       <!-- Diapositiva 9: Las 3 Reglas de Vida -->
       <section data-background-gradient="radial-gradient(circle, #1a241b 0%, #080d09 100%)">
-        <h2 style="font-size: 1.8em; margin-bottom: 40px;">Las 3 Reglas de Vida</h2>
+        <h2 style="font-size: 1.55em; margin-bottom: 18px;">Las 3 Reglas de Vida</h2>
         
         <div class="rules-final-container">
           <div class="rules-final-item fragment">
@@ -719,6 +725,11 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
       progress: true,
       center: true,
       hash: true,
+      width: 1280,
+      height: 720,
+      margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2.0,
       plugins: [ RevealNotes ]
     });
 

@@ -724,17 +724,18 @@
       color: var(--color-danger);
     }
 
-    /* Mobile Responsive Overrides for Slide 8 (No scaling for native feel) */
+    /* Mobile Responsive Overrides for ALL Slides (No scaling for native feel) */
     @media (max-width: 768px) {
-      /* Disable Reveal.js scale transform when Slide 8 is active */
-      .reveal.taller-active .slides {
+      /* Disable Reveal.js scale transform globally on mobile */
+      .reveal .slides {
         transform: none !important;
         width: 100% !important;
         height: 100% !important;
         inset: 0 !important;
       }
       
-      .reveal.taller-active .slides section.taller-section.present {
+      /* Make all slides occupy full screen and scrollable */
+      .reveal .slides section {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
@@ -742,68 +743,157 @@
         height: 100% !important;
         overflow-y: auto !important;
         box-sizing: border-box !important;
-        padding: 24px 16px 100px 16px !important; /* Safe padding for content and controls */
+        padding: 30px 16px 100px 16px !important; /* Top padding, safe bottom padding for navigation */
+        background: #11141a !important; /* Maintain dark background */
+        display: none !important; /* Hide non-present slides */
+      }
+      
+      .reveal .slides section.present {
         display: flex !important;
         flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
         gap: 16px !important;
-        background: #11141a !important;
         z-index: 9 !important;
       }
       
+      /* Base Typography */
+      .reveal {
+        font-size: 15px !important;
+      }
+      .reveal h1 { font-size: 1.8em !important; margin-bottom: 8px !important; }
+      .reveal h2 { font-size: 1.3em !important; margin-bottom: 10px !important; }
+      .reveal h3 { font-size: 1.1em !important; }
+      
+      /* Slide 1 specific */
+      .reveal .slides section:nth-child(1).present {
+        justify-content: center !important; /* Center content vertically on title slide */
+      }
+      .reveal .slides section:nth-child(1) h1 {
+        font-size: 2.2em !important;
+      }
+      
+      /* Column stacking */
+      .grid-2-cols {
+        flex-direction: column !important;
+        gap: 16px !important;
+      }
+      
+      /* Slide 2: Equation */
+      .equation-container {
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
+      }
+      .equation-term {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 14px 10px !important;
+      }
+      .equation-operator {
+        transform: rotate(90deg) !important;
+        padding: 4px 0 !important;
+      }
+      
+      /* Slide 3: Rules */
+      .rules-card {
+        padding: 12px 14px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .rules-header {
+        margin-bottom: 8px !important;
+        padding-bottom: 8px !important;
+      }
+      .rules-list li {
+        font-size: 0.85em !important;
+        margin-bottom: 8px !important;
+      }
+      
+      /* Slide 5: Alerts */
+      .alert-card {
+        width: 100% !important;
+      }
+      .alert-header {
+        padding: 10px 14px !important;
+        font-size: 1.1em !important;
+      }
+      .alert-body {
+        padding: 12px 14px !important;
+        font-size: 0.85em !important;
+      }
+      
+      /* Slide 6: Phrases H and P */
+      .phrase-card {
+        padding: 14px 16px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .phrase-card p {
+        font-size: 0.82em !important;
+      }
+      .phrase-card .phrase-example {
+        font-size: 0.8em !important;
+      }
+      
+      /* Slide 7: Grid HDS */
+      .hds-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        width: 100% !important;
+      }
+      .hds-card {
+        padding: 12px 10px !important;
+      }
+      .hds-card p {
+        font-size: 0.8em !important;
+      }
+      
+      /* Slide 8: Taller SWIPE specific */
       .taller-section {
         font-size: 15px !important;
       }
-      
       .taller-section h2.taller-title {
         font-size: 1.4em !important;
         margin-bottom: 8px !important;
         text-align: center !important;
       }
-      
       .taller-grid {
         flex-direction: column !important;
         gap: 16px !important;
       }
-      
       .taller-col-left {
         flex-direction: column !important;
         gap: 12px !important;
+        width: 100% !important;
       }
-      
       .taller-product-header {
         padding: 10px !important;
         gap: 12px !important;
       }
-      
       .taller-product-img-box {
         width: 60px !important;
         height: 60px !important;
       }
-      
       .taller-product-title {
         font-size: 1.05em !important;
       }
-      
       .taller-product-sub {
         font-size: 0.75em !important;
         margin-bottom: 4px !important;
       }
-      
       .taller-badge-nsf {
         font-size: 0.7em !important;
         padding: 2px 6px !important;
       }
-      
       .taller-spec-grid {
         grid-template-columns: 1fr 1fr !important;
         gap: 8px !important;
         font-size: 0.8em !important;
       }
-      
       .taller-spec-item {
         padding: 8px 10px !important;
       }
-      
       .taller-timer-wrapper {
         padding: 10px !important;
         gap: 8px !important;
@@ -811,62 +901,69 @@
         justify-content: space-between !important;
         align-items: center !important;
       }
-      
       #display-cronometro {
         font-size: 1.8em !important;
         margin-bottom: 0 !important;
       }
-      
       .taller-timer-wrapper .btn-primary {
         width: auto !important;
         padding: 8px 16px !important;
         font-size: 0.8em !important;
       }
-      
       .taller-scenario-box {
         padding: 16px !important;
       }
-      
       .taller-scenario-header {
         font-size: 0.8em !important;
         margin-bottom: 8px !important;
       }
-      
       .taller-scenario-title {
         font-size: 1em !important;
         margin-bottom: 6px !important;
       }
-      
       .taller-scenario-desc-1 {
         font-size: 0.85em !important;
         line-height: 1.45 !important;
         margin-bottom: 10px !important;
       }
-      
       .taller-scenario-desc-2 {
         font-size: 0.85em !important;
         line-height: 1.45 !important;
       }
-      
       .taller-quiz-options {
         margin-top: 12px !important;
         gap: 8px !important;
       }
-      
       .taller-section .quiz-option {
         padding: 10px 12px !important;
         font-size: 0.85em !important;
         border-width: 1.5px !important;
       }
-      
       .taller-section .btn-verificar {
         padding: 10px 0 !important;
         font-size: 0.85em !important;
       }
-      
       .taller-section .quiz-feedback {
         padding: 10px 12px !important;
         font-size: 0.8em !important;
+      }
+      
+      /* Slide 9: Rules final */
+      .rules-final-container {
+        gap: 10px !important;
+        width: 100% !important;
+      }
+      .rules-final-item {
+        padding: 10px 12px !important;
+        gap: 10px !important;
+      }
+      .rules-final-num {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 1.1em !important;
+      }
+      .rules-final-content p {
+        font-size: 0.82em !important;
       }
     }
   </style>
@@ -1273,13 +1370,6 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
       minScale: 0.2,
       maxScale: 2.0,
       plugins: [ RevealNotes ]
-    }).then(() => {
-      // Activar clase taller-active en carga inicial si estamos en la diapositiva del taller
-      const currentSlide = Reveal.getCurrentSlide();
-      if (currentSlide && currentSlide.classList.contains('taller-section')) {
-        const revealEl = document.querySelector('.reveal');
-        if (revealEl) revealEl.classList.add('taller-active');
-      }
     });
 
     // Cronómetro Digital de Cuenta Regresiva
@@ -1378,18 +1468,8 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
       }
     }
 
-    // Reiniciar quiz al regresar a la diapositiva y manejar clase responsiva taller-active
-    Reveal.on('slidechanged', (event) => {
-      const isTaller = event.currentSlide && event.currentSlide.classList.contains('taller-section');
-      const revealEl = document.querySelector('.reveal');
-      if (revealEl) {
-        if (isTaller) {
-          revealEl.classList.add('taller-active');
-        } else {
-          revealEl.classList.remove('taller-active');
-        }
-      }
-
+    // Reiniciar quiz al regresar a la diapositiva
+    Reveal.on('slidechanged', () => {
       opcionSeleccionada = null;
       ['a', 'b', 'c'].forEach(o => {
         const el = document.getElementById('opcion-' + o);

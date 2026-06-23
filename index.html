@@ -830,41 +830,37 @@
 
       <!-- Diapositiva 8 -->
       <section data-background-gradient="radial-gradient(circle, #1b211f 0%, #080d0b 100%)">
-        <h2 style="font-size: 1.8em; margin-bottom: 25px;">Taller Rápido: Dinámica SWIPE</h2>
+        <h2 style="font-size: 1.6em; margin-bottom: 20px;">Taller Rápido: Dinámica SWIPE</h2>
         
-        <div class="grid-2-cols" style="gap: 40px; align-items: center; margin-bottom: 30px;">
-          <!-- Columna Izquierda: Imagen del producto -->
-          <div style="flex: 1; display: flex; justify-content: center;">
-            <div class="product-image-container">
+        <div class="grid-2-cols" style="gap: 30px; align-items: stretch; max-width: 900px; margin: 0 auto;">
+          <!-- Columna Izquierda: Imagen y Cronómetro -->
+          <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 15px;">
+            <div class="product-image-container" style="width: 140px; height: 140px; margin: 0 0 10px 0; border-radius: 10px; border-width: 1px;">
               <img src="12.jpg" alt="Porrón SWIPE 20 Litros" class="product-image">
+            </div>
+            <div class="timer-wrapper" style="padding: 5px 15px; width: 100%; box-sizing: border-box; background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: none; gap: 5px; border-radius: 20px;">
+              <div id="display-cronometro" style="font-size: 1.8em; text-shadow: 0 0 10px rgba(57, 255, 20, 0.4);">02:00</div>
+              <button id="btn-iniciar" onclick="iniciarCronometro()" class="btn-primary" style="padding: 6px 12px; font-size: 0.7em; width: 100%; justify-content: center; margin: 0 auto;">
+                <i class="fa-solid fa-play"></i> Iniciar
+              </button>
             </div>
           </div>
           
           <!-- Columna Derecha: Escenario del Taller -->
-          <div style="flex: 1; text-align: left;">
-            <div class="scenario-box">
+          <div style="flex: 1.5; display: flex; flex-direction: column;">
+            <div class="scenario-box" style="flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 20px;">
               <div class="scenario-header">
                 <i class="fa-solid fa-clipboard-question" style="color: var(--color-warning);"></i>
                 <span>Caso Práctico</span>
               </div>
-              <h4 style="font-size: 1.1em; color: #fff; margin: 0 0 10px 0;">Producto: SWIPE Concentrado</h4>
-              <p style="font-size: 0.85em; line-height: 1.5; color: var(--color-text-muted); margin-bottom: 0;">
-                <strong>Escenario:</strong> Se suscita un derrame accidental de 10L de SWIPE Concentrado en el cuarto de máquinas. 
+              <h4 style="font-size: 1em; color: #fff; margin: 0 0 8px 0;">Producto: SWIPE Concentrado</h4>
+              <p style="font-size: 0.75em; line-height: 1.45; color: var(--color-text-muted); margin: 0;">
+                <strong>Escenario:</strong> Se suscita un derrame accidental de 10L de SWIPE Concentrado en el cuarto de máquinas.
                 <br><br>
-                <i class="fa-solid fa-magnifying-glass" style="color: var(--color-primary);"></i> 
-                Busca rápidamente en la <strong>Sección 6</strong> de tu HDS e indica qué medidas de mitigación se deben tomar inmediatamente.
+                <i class="fa-solid fa-magnifying-glass" style="color: var(--color-primary); margin-right: 5px;"></i>
+                Busca en la <strong>Sección 6</strong> de tu HDS e indica qué medidas de mitigación se deben tomar inmediatamente.
               </p>
             </div>
-          </div>
-        </div>
-        
-        <!-- Abajo Centrado: Cronómetro y Botón -->
-        <div class="timer-section">
-          <div class="timer-wrapper">
-            <div id="display-cronometro">02:00</div>
-            <button id="btn-iniciar" onclick="iniciarCronometro()" class="btn-primary">
-              <i class="fa-solid fa-play"></i> Iniciar Cronómetro (2m)
-            </button>
           </div>
         </div>
         

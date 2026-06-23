@@ -50,15 +50,8 @@
       text-shadow: none !important;
     }
 
-    .reveal h1 {
-      font-size: 2.8em !important;
-      margin-bottom: 20px !important;
-    }
-
-    .reveal h2 {
-      font-size: 1.8em !important;
-      margin-bottom: 30px !important;
-    }
+    .reveal h1 { font-size: 2.8em !important; margin-bottom: 20px !important; }
+    .reveal h2 { font-size: 1.8em !important; margin-bottom: 30px !important; }
 
     /* --- Maquetación en Columnas --- */
     .grid-2-cols {
@@ -85,9 +78,7 @@
       50% { transform: translateY(-10px); }
       100% { transform: translateY(0px); }
     }
-    .floating {
-      animation: float 4s ease-in-out infinite;
-    }
+    .floating { animation: float 4s ease-in-out infinite; }
 
     @keyframes spin-slow {
       from { transform: rotate(0deg); }
@@ -103,9 +94,7 @@
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-    .pulse-effect {
-      animation: pulse 2s infinite ease-in-out;
-    }
+    .pulse-effect { animation: pulse 2s infinite ease-in-out; }
 
     /* --- Estilos de Componentes --- */
     .slide-container {
@@ -115,10 +104,7 @@
       justify-content: center;
       width: 100%;
     }
-
-    .icon-container-main {
-      margin-bottom: 30px;
-    }
+    .icon-container-main { margin-bottom: 30px; }
 
     /* Diapositiva 2: Ecuación Química */
     .equation-container {
@@ -129,7 +115,6 @@
       margin: 0 auto;
       max-width: 900px;
     }
-    
     .equation-term {
       flex: 1;
       background: var(--color-surface);
@@ -142,36 +127,11 @@
       transition: all 0.3s ease;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
-    
-    .equation-term:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255, 255, 255, 0.15);
-    }
-    
-    .equation-term.danger-border {
-      border: 1px solid var(--color-danger);
-      background: rgba(231, 76, 60, 0.05);
-    }
-    
-    .equation-operator {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-text-muted);
-      font-weight: bold;
-    }
-    
-    .equation-term .label {
-      font-size: 1.1em;
-      font-weight: 600;
-      margin-top: 10px;
-    }
-    
-    .equation-term .desc {
-      font-size: 0.75em;
-      color: var(--color-text-muted);
-      margin-top: 5px;
-    }
+    .equation-term:hover { transform: translateY(-5px); border-color: rgba(255, 255, 255, 0.15); }
+    .equation-term.danger-border { border: 1px solid var(--color-danger); background: rgba(231, 76, 60, 0.05); }
+    .equation-operator { display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); font-weight: bold; }
+    .equation-term .label { font-size: 1.1em; font-weight: 600; margin-top: 10px; }
+    .equation-term .desc { font-size: 0.75em; color: var(--color-text-muted); margin-top: 5px; }
 
     /* Diapositiva 3: Reglas */
     .rules-card {
@@ -182,45 +142,12 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
-    
-    .rules-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      padding-bottom: 15px;
-      margin-bottom: 20px;
-    }
-    
-    .rules-header h3 {
-      margin: 0 !important;
-      font-size: 1.3em !important;
-    }
-    
-    .style-icon {
-      font-size: 1.5em;
-    }
-    
-    .rules-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .rules-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 18px;
-      font-size: 0.8em;
-      line-height: 1.4;
-      color: var(--color-text);
-    }
-    
-    .rules-list li i {
-      margin-top: 3px;
-      font-size: 1.1em;
-    }
-    
+    .rules-header { display: flex; align-items: center; gap: 15px; padding-bottom: 15px; margin-bottom: 20px; }
+    .rules-header h3 { margin: 0 !important; font-size: 1.3em !important; }
+    .style-icon { font-size: 1.5em; }
+    .rules-list { list-style: none; padding: 0; margin: 0; }
+    .rules-list li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px; font-size: 0.8em; line-height: 1.4; color: var(--color-text); }
+    .rules-list li i { margin-top: 3px; font-size: 1.1em; }
     .text-primary { color: var(--color-primary); }
     .text-success { color: var(--color-success); }
 
@@ -236,67 +163,18 @@
       transition: transform 0.3s ease;
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
-    
-    .alert-card:hover {
-      transform: translateY(-5px);
-    }
-    
-    .alert-header {
-      padding: 20px;
-      font-size: 1.4em;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      letter-spacing: 1px;
-    }
-    
-    .alert-body {
-      padding: 25px;
-      background: var(--color-surface);
-      flex: 1;
-      font-size: 0.8em;
-      line-height: 1.5;
-    }
-    
-    .alert-body p {
-      margin: 0 0 15px 0 !important;
-    }
-    
-    .alert-body p:last-child {
-      margin: 0 !important;
-    }
-    
-    .example-text {
-      border-left: 3px solid rgba(255, 255, 255, 0.2);
-      padding-left: 10px;
-      font-style: italic;
-      color: var(--color-text-muted);
-    }
-    
-    /* Danger Card Styles */
-    .danger-card {
-      border-color: rgba(231, 76, 60, 0.3);
-    }
-    .danger-card .alert-header {
-      background: var(--color-danger);
-      color: #fff;
-    }
-    .danger-card .example-text {
-      border-left-color: var(--color-danger);
-    }
-    
-    /* Warning Card Styles */
-    .warning-card {
-      border-color: rgba(241, 196, 15, 0.3);
-    }
-    .warning-card .alert-header {
-      background: var(--color-warning);
-      color: #111;
-    }
-    .warning-card .example-text {
-      border-left-color: var(--color-warning);
-    }
+    .alert-card:hover { transform: translateY(-5px); }
+    .alert-header { padding: 20px; font-size: 1.4em; font-weight: 800; display: flex; align-items: center; gap: 12px; letter-spacing: 1px; }
+    .alert-body { padding: 25px; background: var(--color-surface); flex: 1; font-size: 0.8em; line-height: 1.5; }
+    .alert-body p { margin: 0 0 15px 0 !important; }
+    .alert-body p:last-child { margin: 0 !important; }
+    .example-text { border-left: 3px solid rgba(255, 255, 255, 0.2); padding-left: 10px; font-style: italic; color: var(--color-text-muted); }
+    .danger-card { border-color: rgba(231, 76, 60, 0.3); }
+    .danger-card .alert-header { background: var(--color-danger); color: #fff; }
+    .danger-card .example-text { border-left-color: var(--color-danger); }
+    .warning-card { border-color: rgba(241, 196, 15, 0.3); }
+    .warning-card .alert-header { background: var(--color-warning); color: #111; }
+    .warning-card .example-text { border-left-color: var(--color-warning); }
 
     /* Diapositiva 6: Frases H y P */
     .phrase-card {
@@ -311,61 +189,14 @@
       align-items: center;
       text-align: center;
     }
-    
-    .phrase-card h3 {
-      margin: 15px 0 5px 0 !important;
-      font-size: 1.3em !important;
-    }
-    
-    .phrase-card .sub {
-      font-size: 0.8em;
-      color: var(--color-text-muted);
-      margin-bottom: 15px;
-      display: block;
-    }
-    
-    .phrase-card p {
-      font-size: 0.8em;
-      line-height: 1.5;
-      margin-bottom: 20px !important;
-      text-align: left;
-    }
-    
-    .phrase-icon-wrapper {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .circle-h {
-      background: rgba(230, 126, 34, 0.1);
-      border: 1px solid rgba(230, 126, 34, 0.3);
-    }
-    
-    .circle-p {
-      background: rgba(46, 204, 113, 0.1);
-      border: 1px solid rgba(46, 204, 113, 0.3);
-    }
-    
-    .phrase-example {
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px dashed rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      padding: 12px;
-      font-size: 0.75em;
-      text-align: left;
-      line-height: 1.4;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    
-    .phrase-example strong {
-      color: #fff;
-    }
-    
+    .phrase-card h3 { margin: 15px 0 5px 0 !important; font-size: 1.3em !important; }
+    .phrase-card .sub { font-size: 0.8em; color: var(--color-text-muted); margin-bottom: 15px; display: block; }
+    .phrase-card p { font-size: 0.8em; line-height: 1.5; margin-bottom: 20px !important; text-align: left; }
+    .phrase-icon-wrapper { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .circle-h { background: rgba(230, 126, 34, 0.1); border: 1px solid rgba(230, 126, 34, 0.3); }
+    .circle-p { background: rgba(46, 204, 113, 0.1); border: 1px solid rgba(46, 204, 113, 0.3); }
+    .phrase-example { background: rgba(0, 0, 0, 0.2); border: 1px dashed rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 12px; font-size: 0.75em; text-align: left; line-height: 1.4; width: 100%; box-sizing: border-box; }
+    .phrase-example strong { color: #fff; }
     .border-h { border-top: 4px solid #e67e22; }
     .border-p { border-top: 4px solid #2ecc71; }
 
@@ -382,123 +213,63 @@
       text-align: center;
       transition: all 0.3s ease;
     }
-    
-    .hds-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    }
-    
-    .hds-card h4 {
-      margin: 15px 0 5px 0 !important;
-      font-size: 1.1em !important;
-      color: #fff !important;
-    }
-    
-    .hds-card h5 {
-      margin: 0 0 10px 0 !important;
-      font-size: 0.9em !important;
-      color: var(--color-text-muted) !important;
-      font-weight: 500 !important;
-    }
-    
-    .hds-card p {
-      font-size: 0.75em;
-      line-height: 1.4;
-      margin: 0 !important;
-      color: var(--color-text-muted);
-    }
-    
-    .hds-icon-box {
-      width: 50px;
-      height: 50px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid;
-    }
-    
-    .hds-icon-box i {
-      font-size: 1.5em;
-    }
+    .hds-card:hover { transform: translateY(-5px); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); }
+    .hds-card h4 { margin: 15px 0 5px 0 !important; font-size: 1.1em !important; color: #fff !important; }
+    .hds-card h5 { margin: 0 0 10px 0 !important; font-size: 0.9em !important; color: var(--color-text-muted) !important; font-weight: 500 !important; }
+    .hds-card p { font-size: 0.75em; line-height: 1.4; margin: 0 !important; color: var(--color-text-muted); }
+    .hds-icon-box { width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid; }
+    .hds-icon-box i { font-size: 1.5em; }
 
-    /* Diapositiva 8: Taller Rápido y Cronómetro */
+    /* Diapositiva 8: Ficha SWIPE + Cronómetro */
     .product-image-container {
-      width: 250px;
-      height: 250px;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
       border: 2px solid rgba(255, 255, 255, 0.1);
-      background: #1a1e24;
+      background: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    
-    .product-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
+    .product-image { width: 100%; height: 100%; object-fit: contain; }
     .scenario-box {
       background: var(--color-surface);
       border-radius: 12px;
-      padding: 25px;
+      padding: 20px;
       border-left: 4px solid var(--color-warning);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
+    .scenario-header { font-size: 0.8em; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--color-warning); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
     
-    .scenario-header {
-      font-size: 0.8em;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--color-warning);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .timer-section {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      margin-top: 20px;
-    }
-    
+    /* Cronómetro */
     .timer-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 15px;
+      gap: 10px;
       background: rgba(0, 0, 0, 0.3);
-      padding: 15px 35px;
-      border-radius: 50px;
+      padding: 10px 20px;
+      border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
+      width: 100%;
+      box-sizing: border-box;
     }
-    
     #display-cronometro {
       font-family: var(--font-mono);
-      font-size: 2.2em;
+      font-size: 1.8em;
       color: var(--color-neon-green);
-      text-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
+      text-shadow: 0 0 12px rgba(57, 255, 20, 0.5);
       font-weight: bold;
       letter-spacing: 2px;
       line-height: 1;
     }
-    
     .btn-primary {
       background: linear-gradient(135deg, var(--color-primary) 0%, #2980b9 100%);
       color: #fff;
       border: none;
-      padding: 10px 24px;
+      padding: 8px 18px;
       font-family: var(--font-main);
-      font-size: 0.8em;
+      font-size: 0.7em;
       font-weight: 600;
       border-radius: 30px;
       cursor: pointer;
@@ -507,27 +278,45 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      width: 100%;
+      justify-content: center;
     }
-    
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(52, 152, 219, 0.6);
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(52, 152, 219, 0.6); }
+    .btn-primary:active { transform: translateY(1px); }
+
+    /* Ficha técnica SWIPE */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      font-size: 0.7em;
     }
+    .spec-item {
+      background: rgba(0,0,0,0.2);
+      border-radius: 6px;
+      padding: 6px 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .spec-label { color: var(--color-text-muted); font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.5px; }
+    .spec-value { color: #fff; font-weight: 600; }
     
-    .btn-primary:active {
-      transform: translateY(1px);
+    /* Badge NSF */
+    .badge-nsf {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(46, 204, 113, 0.1);
+      border: 1px solid rgba(46, 204, 113, 0.3);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 0.7em;
+      font-weight: 600;
+      color: var(--color-success);
     }
 
     /* Diapositiva 9: Reglas Finales */
-    .rules-final-container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    
+    .rules-final-container { display: flex; flex-direction: column; gap: 20px; max-width: 800px; margin: 0 auto; text-align: left; }
     .rules-final-item {
       display: flex;
       gap: 20px;
@@ -539,39 +328,9 @@
       align-items: center;
       transition: all 0.3s ease;
     }
-    
-    .rules-final-item.visible {
-      border-color: rgba(46, 204, 113, 0.3);
-      box-shadow: 0 10px 25px rgba(46, 204, 113, 0.08);
-    }
-    
-    .rules-final-num {
-      font-family: var(--font-main);
-      font-size: 1.8em;
-      font-weight: 800;
-      color: var(--color-success);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(46, 204, 113, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    
-    .rules-final-content h4 {
-      margin: 0 0 5px 0 !important;
-      font-size: 1.1em !important;
-      color: #fff !important;
-    }
-    
-    .rules-final-content p {
-      margin: 0 !important;
-      font-size: 0.8em;
-      color: var(--color-text-muted);
-      line-height: 1.4;
-    }
+    .rules-final-num { font-family: var(--font-main); font-size: 1.8em; font-weight: 800; color: var(--color-success); width: 50px; height: 50px; border-radius: 50%; background: rgba(46, 204, 113, 0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .rules-final-content h4 { margin: 0 0 5px 0 !important; font-size: 1.1em !important; color: #fff !important; }
+    .rules-final-content p { margin: 0 !important; font-size: 0.8em; color: var(--color-text-muted); line-height: 1.4; }
   </style>
 </head>
 <body>
@@ -581,7 +340,7 @@
       
       <!-- MÓDULO 1: INTRODUCCIÓN -->
       
-      <!-- Diapositiva 1 -->
+      <!-- Diapositiva 1: Título -->
       <section data-background-gradient="radial-gradient(circle, #1a2238 0%, #0b0d13 100%)">
         <div class="slide-container">
           <div class="icon-container-main floating">
@@ -595,50 +354,45 @@
         </aside>
       </section>
 
-      <!-- Diapositiva 2 -->
+      <!-- Diapositiva 2: ¿Limpiar o arriesgar? -->
       <section data-background-gradient="radial-gradient(circle, #221515 0%, #0a0707 100%)">
         <h2 style="font-size: 1.8em; color: var(--color-text);">¿Limpiar mejor o arriesgar tu vida?</h2>
-        <p style="font-size: 0.9em; color: var(--color-text-muted); margin-bottom: 40px;">Una mezcla común en la limpieza puede resultar fatal en segundos.</p>
+        <p style="font-size: 0.9em; color: var(--color-text-muted); margin-bottom: 40px;">Una mezcla común puede resultar fatal. La HDS de SWIPE lo confirma: <em>incompatible con hipoclorito de sodio.</em></p>
         
         <div class="equation-container">
           <div class="equation-term">
             <i class="fa-solid fa-bottle-water fa-2x" style="color: #3498db; margin-bottom: 15px;"></i>
-            <span class="label">Cloro</span>
-            <span class="desc">Hipoclorito de Sodio</span>
+            <span class="label">SWIPE</span>
+            <span class="desc">Desengrasante (pH 12-14, alcalino)</span>
           </div>
-          
           <div class="equation-operator">
             <i class="fa-solid fa-plus fa-lg"></i>
           </div>
-          
           <div class="equation-term">
             <i class="fa-solid fa-droplet fa-2x" style="color: #e67e22; margin-bottom: 15px;"></i>
-            <span class="label">Ácido</span>
-            <span class="desc">Ácido Clorhídrico (Salfumán)</span>
+            <span class="label">Cloro</span>
+            <span class="desc">Hipoclorito de Sodio</span>
           </div>
-          
           <div class="equation-operator">
             <i class="fa-solid fa-equals fa-lg"></i>
           </div>
-          
           <div class="equation-term danger-border fragment">
             <i class="fa-solid fa-skull-crossbones fa-2x pulse-effect" style="color: var(--color-danger); margin-bottom: 15px;"></i>
-            <span class="label" style="color: var(--color-danger);">Gas Tóxico</span>
-            <span class="desc">Gas Cloro (Mortal por Asfixia)</span>
+            <span class="label" style="color: var(--color-danger);">Reacción Peligrosa</span>
+            <span class="desc">Gas Cloro · Óxidos de Sodio (Sección 10 HDS)</span>
           </div>
         </div>
         <aside class="notes">
-          Esta diapositiva ilustra un error común en la industria y el hogar: mezclar cloro con limpiadores ácidos. El resultado es gas cloro, el cual es altamente tóxico e incluso letal en espacios cerrados. La norma nos capacita para evitar estas mezclas fatales mediante la correcta lectura de la HDS.
+          Este ejemplo es REAL y está documentado en la Sección 10 de la HDS de SWIPE. Bajo "Materiales Incompatibles" se especifica explícitamente: "No compatible con hipoclorito de sodio". Y bajo "Productos de descomposición peligrosa" se citan Óxidos de Sodio. Esta es la razón por la que necesitamos leer la HDS.
         </aside>
       </section>
 
-      <!-- Diapositiva 3 -->
+      <!-- Diapositiva 3: Reglas del Juego -->
       <section data-background-gradient="radial-gradient(circle, #17222b 0%, #0a0e12 100%)">
         <h2 style="font-size: 1.8em; margin-bottom: 20px;">Las Reglas del Juego</h2>
         <p style="font-size: 0.9em; color: var(--color-text-muted); margin-bottom: 40px;">Responsabilidades compartidas en el manejo seguro de sustancias químicas.</p>
         
         <div class="grid-2-cols" style="gap: 40px;">
-          <!-- Columna 1: La Empresa -->
           <div class="rules-card">
             <div class="rules-header" style="border-bottom: 2px solid var(--color-primary);">
               <i class="fa-solid fa-building style-icon" style="color: var(--color-primary);"></i>
@@ -647,7 +401,7 @@
             <ul class="rules-list">
               <li class="fragment" data-fragment-index="1">
                 <i class="fa-solid fa-file-circle-check text-primary"></i>
-                <span>Proporcionar las HDS (Hojas de Datos de Seguridad) actualizadas para cada químico.</span>
+                <span>Proporcionar las HDS actualizadas para cada químico (como la HDS de SWIPE Rev. 2 · Ene 2026).</span>
               </li>
               <li class="fragment" data-fragment-index="3">
                 <i class="fa-solid fa-tag text-primary"></i>
@@ -660,7 +414,6 @@
             </ul>
           </div>
           
-          <!-- Columna 2: Tú -->
           <div class="rules-card">
             <div class="rules-header" style="border-bottom: 2px solid var(--color-success);">
               <i class="fa-solid fa-user-shield style-icon" style="color: var(--color-success);"></i>
@@ -672,8 +425,8 @@
                 <span>Identificar los peligros leyendo las etiquetas y HDS antes del uso.</span>
               </li>
               <li class="fragment" data-fragment-index="4">
-                <i class="fa-solid fa-mask-ventilator text-success"></i>
-                <span>Utilizar el Equipo de Protección Personal (EPP) indicado.</span>
+                <i class="fa-solid fa-hand-dots text-success"></i>
+                <span>Usar guantes para contacto prolongado con SWIPE. Gafas protectoras en todo momento.</span>
               </li>
               <li class="fragment" data-fragment-index="6">
                 <i class="fa-solid fa-triangle-exclamation text-success"></i>
@@ -683,13 +436,13 @@
           </div>
         </div>
         <aside class="notes">
-          Esta es una estructura de responsabilidades mutuas. Observen cómo las tareas se complementan: la empresa provee los elementos e información, mientras que el trabajador tiene la obligación de utilizarlos de manera correcta y reportar cualquier desviación.
+          Esta es una estructura de responsabilidades mutuas. Observen cómo las tareas se complementan: la empresa provee los elementos e información, mientras que el trabajador tiene la obligación de utilizarlos de manera correcta y reportar cualquier desviación. Noten que el EPP de SWIPE (Sección 8 HDS) indica: Gafas protectoras y guantes para uso prolongado.
         </aside>
       </section>
 
       <!-- MÓDULO 2: EL IDIOMA (SGA) -->
       
-      <!-- Diapositiva 4 -->
+      <!-- Diapositiva 4: Un mundo, un idioma -->
       <section data-background-gradient="radial-gradient(circle, #111a2e 0%, #05080f 100%)">
         <div class="slide-container">
           <div class="earth-container floating">
@@ -697,179 +450,222 @@
           </div>
           <h2 style="font-size: 1.8em; margin-top: 30px; margin-bottom: 20px;">Un mundo, un solo idioma</h2>
           <p style="font-size: 1.05em; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.5; color: var(--color-text-muted);">
-            El <strong style="color: var(--color-primary);">Sistema Globalmente Armonizado (SGA)</strong> homologa la clasificación y etiquetado de productos químicos a nivel internacional. No importa el país o el idioma: los pictogramas y palabras clave son universales.
+            El <strong style="color: var(--color-primary);">Sistema Globalmente Armonizado (SGA)</strong> homologa la clasificación y etiquetado de productos químicos a nivel internacional. SWIPE se comercializa en más de <strong style="color: #fff;">25 países</strong>; sus pictogramas y frases de seguridad son idénticos en todos ellos.
           </p>
         </div>
         <aside class="notes">
-          El SGA, incorporado por la NOM-018, es un esfuerzo mundial coordinado por la ONU. Su objetivo es unificar los criterios para que una sustancia catalogada como peligrosa en México se entienda igual en Japón, Alemania o Estados Unidos, facilitando la protección a la salud y el comercio internacional.
+          El SGA, incorporado por la NOM-018, es un esfuerzo mundial coordinado por la ONU. La ficha técnica de SWIPE menciona que el producto se emplea en la industria en más de 25 países alrededor del mundo. Eso es exactamente por lo que el SGA importa: un operador en Guadalajara y uno en Frankfurt leen el mismo pictograma y entienden el mismo nivel de peligro.
         </aside>
       </section>
 
-      <!-- Diapositiva 5 -->
+      <!-- Diapositiva 5: Palabras de Advertencia -->
       <section data-background-gradient="radial-gradient(circle, #1c1f24 0%, #0a0d10 100%)">
         <h2 style="font-size: 1.8em; margin-bottom: 20px;">Palabras de Advertencia</h2>
         <p style="font-size: 0.9em; color: var(--color-text-muted); margin-bottom: 40px;">Indicadores visuales rápidos sobre el nivel de peligro de la sustancia.</p>
         
         <div class="grid-2-cols" style="gap: 40px; justify-content: center;">
-          <!-- Tarjeta Peligro -->
           <div class="alert-card danger-card fragment">
             <div class="alert-header">
               <i class="fa-solid fa-triangle-exclamation"></i>
               <span>PELIGRO</span>
             </div>
             <div class="alert-body">
-              <p>Se utiliza para indicar las categorías de peligro <strong>más graves</strong>.</p>
-              <p class="example-text">Ejemplo: SWIPE Concentrado (causa quemaduras graves en la piel y lesiones oculares).</p>
+              <p>Se utiliza para indicar las categorías de peligro <strong>más graves</strong>. Requiere acción inmediata y precauciones estrictas.</p>
+              <p class="example-text">Ejemplo: Ácido sulfúrico concentrado, solventes inflamables de alta toxicidad.</p>
             </div>
           </div>
           
-          <!-- Tarjeta Atención -->
           <div class="alert-card warning-card fragment">
             <div class="alert-header">
               <i class="fa-solid fa-circle-exclamation"></i>
               <span>ATENCIÓN</span>
             </div>
             <div class="alert-body">
-              <p>Se utiliza para indicar las categorías de peligro <strong>menos graves</strong>.</p>
-              <p class="example-text">Ejemplo: Sustancias con toxicidad aguda de menor grado o irritaciones leves.</p>
+              <p>Se utiliza para las categorías de peligro <strong>menos graves</strong>. Precauciones normales de higiene industrial.</p>
+              <p class="example-text">Ejemplo: SWIPE Concentrado — puede causar leve irritación ocular y ligero desengrase de la piel (HDS Sección 11).</p>
             </div>
           </div>
         </div>
         <aside class="notes">
-          Las dos palabras de advertencia que contempla la norma son PELIGRO y ATENCIÓN. La palabra PELIGRO se reserva para riesgos severos, mientras que ATENCIÓN denota peligros de menor nivel pero que aun así requieren precauciones especiales.
+          Las dos palabras de advertencia que contempla la norma son PELIGRO y ATENCIÓN. SWIPE cae en la categoría ATENCIÓN, lo cual no significa que sea inofensivo, sino que sus efectos son reversibles y manejables con el EPP correcto. La HDS indica leve irritación ocular y ligero desengrase de piel.
         </aside>
       </section>
 
-      <!-- Diapositiva 6 -->
+      <!-- Diapositiva 6: Frases H y P -->
       <section data-background-gradient="radial-gradient(circle, #131d27 0%, #07090b 100%)">
-        <h2 style="font-size: 1.8em; margin-bottom: 40px;">Frases H y P</h2>
+        <h2 style="font-size: 1.8em; margin-bottom: 30px;">Frases H y P</h2>
         <div class="grid-2-cols" style="gap: 40px;">
-          <!-- Frases H -->
           <div class="phrase-card border-h">
             <div class="phrase-icon-wrapper circle-h">
               <i class="fa-solid fa-bolt fa-lg" style="color: #e67e22;"></i>
             </div>
             <h3>Frases H</h3>
             <span class="sub">Hazard (Indicaciones de Peligro)</span>
-            <p>Describen la naturaleza de los peligros de una sustancia química (físicos, a la salud o al medio ambiente) y, cuando corresponda, el grado de peligro.</p>
+            <p>Describen la naturaleza de los peligros de una sustancia química (físicos, a la salud o al medio ambiente) y el grado de peligro.</p>
             <div class="phrase-example">
-              <strong>H314:</strong> Provoca quemaduras graves en la piel y lesiones oculares graves.
+              <strong>Sección 11 HDS SWIPE:</strong> Provoca leve irritación ocular · Ligero desengrase de la piel · Daños en tracto digestivo si se ingiere · Irritación de vías aéreas por inhalación.
             </div>
           </div>
           
-          <!-- Frases P -->
           <div class="phrase-card border-p">
             <div class="phrase-icon-wrapper circle-p">
               <i class="fa-solid fa-shield-halved fa-lg" style="color: #2ecc71;"></i>
             </div>
             <h3>Frases P</h3>
             <span class="sub">Prudence (Consejos de Prudencia)</span>
-            <p>Recomiendan medidas obligatorias para minimizar o prevenir los efectos adversos causados por la exposición o el almacenamiento incorrecto.</p>
+            <p>Recomiendan medidas para minimizar o prevenir los efectos adversos causados por la exposición o el almacenamiento incorrecto.</p>
             <div class="phrase-example">
-              <strong>P280:</strong> Usar guantes, ropa de protección, equipo de protección para los ojos y la cara.
+              <strong>Sección 8 HDS SWIPE:</strong> Usar gafas protectoras · Utilizar guantes para contacto prolongado · Manipulación con precauciones de higiene industrial adecuadas.
             </div>
           </div>
         </div>
         <aside class="notes">
-          Las frases H describen el peligro intrínseco de la sustancia (por ejemplo, inflamabilidad o corrosividad), mientras que las frases P nos dicen qué hacer para protegernos (por ejemplo, ventilación, primeros auxilios o uso de EPP). Ambas se codifican numéricamente pero en las etiquetas deben aparecer con su texto completo.
+          Estas frases provienen directamente de la Hoja de Datos de Seguridad de SWIPE. La Sección 11 describe los peligros toxicológicos y la Sección 8 especifica los controles de exposición y el EPP requerido. Noten que no requiere protección respiratoria, lo cual indica un perfil de riesgo moderado.
         </aside>
       </section>
 
       <!-- MÓDULO 3: HDS Y DINÁMICA SWIPE -->
       
-      <!-- Diapositiva 7 -->
+      <!-- Diapositiva 7: Las 4 Secciones Críticas -->
       <section data-background-gradient="radial-gradient(circle, #161a24 0%, #080a0f 100%)">
-        <h2 style="font-size: 1.8em; margin-bottom: 20px;">Las 4 Secciones Críticas de la HDS</h2>
-        <p style="font-size: 0.9em; color: var(--color-text-muted); margin-bottom: 40px;">Las Hojas de Datos de Seguridad constan de 16 secciones. Para emergencias y uso diario, estas 4 son vitales.</p>
+        <h2 style="font-size: 1.8em; margin-bottom: 15px;">Las 4 Secciones Críticas de la HDS</h2>
+        <p style="font-size: 0.85em; color: var(--color-text-muted); margin-bottom: 30px;">La HDS de SWIPE tiene 16 secciones. En emergencias, estas 4 son vitales.</p>
         
         <div class="hds-grid">
-          <!-- Sección 4 -->
           <div class="hds-card">
             <div class="hds-icon-box" style="background: rgba(231, 76, 60, 0.1); border-color: rgba(231, 76, 60, 0.3);">
               <i class="fa-solid fa-kit-medical" style="color: var(--color-danger);"></i>
             </div>
             <h4>Sección 4</h4>
             <h5>Primeros Auxilios</h5>
-            <p>Instrucciones de primeros auxilios inmediatos ante inhalación, ingestión, contacto con piel u ojos.</p>
+            <p>Ojos: lavar con agua abundante. Piel: retirar y lavar. Ingestión: consultar médico. Inhalación: aire fresco.</p>
           </div>
           
-          <!-- Sección 6 -->
           <div class="hds-card">
             <div class="hds-icon-box" style="background: rgba(52, 152, 219, 0.1); border-color: rgba(52, 152, 219, 0.3);">
               <i class="fa-solid fa-bucket" style="color: var(--color-primary);"></i>
             </div>
             <h4>Sección 6</h4>
             <h5>Derrames Accidentales</h5>
-            <p>Medidas en caso de fuga o vertido accidental, contención y métodos de limpieza segura.</p>
+            <p>Contener con material absorbente no combustible. No permitir contacto con suelo o canales de agua.</p>
           </div>
           
-          <!-- Sección 7 -->
           <div class="hds-card">
             <div class="hds-icon-box" style="background: rgba(241, 196, 15, 0.1); border-color: rgba(241, 196, 15, 0.3);">
               <i class="fa-solid fa-boxes-stacked" style="color: var(--color-warning);"></i>
             </div>
             <h4>Sección 7</h4>
             <h5>Manejo y Almacén</h5>
-            <p>Precauciones para la manipulación segura y condiciones de almacenamiento seguro de la sustancia.</p>
+            <p>Guardar entre 3°C y 40°C. Lejos del calor. Recipiente hermético y etiquetado. Fuera del alcance de niños.</p>
           </div>
           
-          <!-- Sección 8 -->
           <div class="hds-card">
             <div class="hds-icon-box" style="background: rgba(46, 204, 113, 0.1); border-color: rgba(46, 204, 113, 0.3);">
               <i class="fa-solid fa-user-shield" style="color: var(--color-success);"></i>
             </div>
             <h4>Sección 8</h4>
             <h5>EPP y Exposición</h5>
-            <p>Límites de exposición permisibles y especificaciones de Equipo de Protección Personal requerido.</p>
+            <p>Gafas protectoras. Guantes para uso prolongado. No requiere protección respiratoria ni cutánea especial.</p>
           </div>
         </div>
         <aside class="notes">
-          Las HDS completas contienen 16 secciones. En la operación diaria, es crucial memorizar la ubicación de la Sección 4 (qué hacer en caso de contacto), la 6 (fugas o derrames), la 7 (cómo almacenarlo sin incompatibilidades) y la 8 (qué equipo ponernos antes de tocar el producto).
+          Estos datos son EXACTOS de la HDS oficial de SWIPE (CA-CC-08 Versión 2, enero 2026). En la Sección 7 la temperatura óptima de almacenamiento es 25°C, y en la Sección 8 se especifica que la protección respiratoria y cutánea especial NO aplica para uso normal. Solo gafas y guantes.
         </aside>
       </section>
 
-      <!-- Diapositiva 8 -->
+      <!-- Diapositiva 8: Taller SWIPE + Cronómetro -->
       <section data-background-gradient="radial-gradient(circle, #1b211f 0%, #080d0b 100%)">
-        <h2 style="font-size: 1.6em; margin-bottom: 20px;">Taller Rápido: Dinámica SWIPE</h2>
+        <h2 style="font-size: 1.6em; margin-bottom: 18px;">Taller Rápido: Dinámica SWIPE</h2>
         
-        <div class="grid-2-cols" style="gap: 30px; align-items: stretch; max-width: 900px; margin: 0 auto;">
-          <!-- Columna Izquierda: Imagen y Cronómetro -->
-          <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 15px;">
-            <div class="product-image-container" style="width: 140px; height: 140px; margin: 0 0 10px 0; border-radius: 10px; border-width: 1px;">
-              <img src="12.jpg" alt="Porrón SWIPE 20 Litros" class="product-image">
+        <div class="grid-2-cols" style="gap: 25px; align-items: stretch; max-width: 960px; margin: 0 auto;">
+          
+          <!-- Columna Izquierda: Imagen + Ficha Técnica + Cronómetro -->
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 12px;">
+            
+            <!-- Imagen + Badges -->
+            <div style="display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 12px;">
+              <div class="product-image-container" style="width: 100px; height: 100px; border-radius: 10px; border-width: 1px; flex-shrink: 0;">
+                <img src="swipe.png" alt="SWIPE Concentrado Porrón 20 Litros" class="product-image">
+              </div>
+              <div>
+                <div style="font-size: 1.1em; font-weight: 800; color: #fff; margin-bottom: 4px;">SWIPE® Concentrado</div>
+                <div style="font-size: 0.7em; color: var(--color-text-muted); margin-bottom: 8px;">Homecare de México · CA-CC-08 v.2</div>
+                <span class="badge-nsf"><i class="fa-solid fa-award"></i> NSF Reg. #148131 · Grado Alimenticio A1</span>
+              </div>
             </div>
-            <div class="timer-wrapper" style="padding: 5px 15px; width: 100%; box-sizing: border-box; background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: none; gap: 5px; border-radius: 20px;">
-              <div id="display-cronometro" style="font-size: 1.8em; text-shadow: 0 0 10px rgba(57, 255, 20, 0.4);">02:00</div>
-              <button id="btn-iniciar" onclick="iniciarCronometro()" class="btn-primary" style="padding: 6px 12px; font-size: 0.7em; width: 100%; justify-content: center; margin: 0 auto;">
-                <i class="fa-solid fa-play"></i> Iniciar
+            
+            <!-- Ficha técnica mini -->
+            <div class="spec-grid">
+              <div class="spec-item">
+                <span class="spec-label">pH</span>
+                <span class="spec-value">12 – 14</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Color</span>
+                <span class="spec-value">Azul / Rojo Rosado</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Densidad</span>
+                <span class="spec-value">1.060 – 1.100 g/mL</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Incompatible con</span>
+                <span class="spec-value" style="color: var(--color-danger);">Hipoclorito de sodio</span>
+              </div>
+            </div>
+            
+            <!-- Cronómetro -->
+            <div class="timer-wrapper">
+              <div id="display-cronometro">02:00</div>
+              <button id="btn-iniciar" onclick="iniciarCronometro()" class="btn-primary">
+                <i class="fa-solid fa-play"></i> Iniciar Cronómetro (2 min)
               </button>
             </div>
           </div>
           
-          <!-- Columna Derecha: Escenario del Taller -->
-          <div style="flex: 1.5; display: flex; flex-direction: column;">
-            <div class="scenario-box" style="flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 20px;">
+          <!-- Columna Derecha: Escenario -->
+          <div style="flex: 1.4; display: flex; flex-direction: column;">
+            <div class="scenario-box" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
               <div class="scenario-header">
-                <i class="fa-solid fa-clipboard-question" style="color: var(--color-warning);"></i>
-                <span>Caso Práctico</span>
+                <i class="fa-solid fa-clipboard-question"></i>
+                <span>Caso Práctico · Sección 6 HDS</span>
               </div>
-              <h4 style="font-size: 1em; color: #fff; margin: 0 0 8px 0;">Producto: SWIPE Concentrado</h4>
-              <p style="font-size: 0.75em; line-height: 1.45; color: var(--color-text-muted); margin: 0;">
-                <strong>Escenario:</strong> Se suscita un derrame accidental de 10L de SWIPE Concentrado en el cuarto de máquinas.
-                <br><br>
-                <i class="fa-solid fa-magnifying-glass" style="color: var(--color-primary); margin-right: 5px;"></i>
-                Busca en la <strong>Sección 6</strong> de tu HDS e indica qué medidas de mitigación se deben tomar inmediatamente.
+              <h4 style="font-size: 1em; color: #fff; margin: 0 0 10px 0;">Escenario de Derrame</h4>
+              <p style="font-size: 0.78em; line-height: 1.5; color: var(--color-text-muted); margin: 0 0 14px 0;">
+                Derrame accidental de <strong>10 L de SWIPE Concentrado</strong> en el cuarto de máquinas. El producto es alcalino (pH 12-14) y puede contaminar canales de agua.
               </p>
+              <p style="font-size: 0.78em; line-height: 1.5; color: var(--color-text-muted); margin: 0;">
+                <i class="fa-solid fa-magnifying-glass" style="color: var(--color-primary); margin-right: 5px;"></i>
+                Consulta la <strong>Sección 6 de la HDS</strong> y elige las acciones correctas de contención y limpieza. <em>Tienes 2 minutos.</em>
+              </p>
+              
+              <!-- Opciones de respuesta -->
+              <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 7px; font-size: 0.72em;">
+                <div style="display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);">
+                  <i class="fa-regular fa-square" style="color: var(--color-text-muted); flex-shrink: 0;"></i>
+                  <span>a) Barrer con escoba y trapo</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 8px; background: rgba(46,204,113,0.06); border: 1px solid rgba(46,204,113,0.2);">
+                  <i class="fa-regular fa-square" style="color: var(--color-success); flex-shrink: 0;"></i>
+                  <span>b) Absorber con arena / tierra / diatomeas</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);">
+                  <i class="fa-regular fa-square" style="color: var(--color-text-muted); flex-shrink: 0;"></i>
+                  <span>c) Diluir con agua y dejar drenar al drenaje</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         
-        <aside class="notes">*** RESPUESTA ESPERADA: Contener y recoger el derrame con material absorbente que no sea combustible (p. ej. Arena, tierra, barro, diatomeas, vermiculita). ***</aside>
+        <aside class="notes">*** RESPUESTA ESPERADA: Contener y recoger el derrame con material absorbente que no sea combustible (p. ej. Arena, tierra, barro, diatomeas, vermiculita). ***
+        
+CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el contacto con el suelo, la superficie o con las aguas subterráneas." El producto es tóxico para organismos acuáticos (96hr · 110 mg/litro, especie Pimephalis promelas). La opción C es incorrecta precisamente porque contaminaría el drenaje y sistemas acuáticos.</aside>
       </section>
 
       <!-- MÓDULO 4: CIERRE -->
       
-      <!-- Diapositiva 9 -->
+      <!-- Diapositiva 9: Las 3 Reglas de Vida -->
       <section data-background-gradient="radial-gradient(circle, #1a241b 0%, #080d09 100%)">
         <h2 style="font-size: 1.8em; margin-bottom: 40px;">Las 3 Reglas de Vida</h2>
         
@@ -880,7 +676,7 @@
             </div>
             <div class="rules-final-content">
               <h4>Identifica Antes de Tocar</h4>
-              <p>Nunca manipules una sustancia química si no está debidamente etiquetada y si no conoces su HDS. El desconocimiento es el primer paso hacia un accidente.</p>
+              <p>Lee la etiqueta y la HDS antes de usar cualquier químico. SWIPE tiene pH 12–14: alcalino, no inflamable, pero incompatible con el cloro. Conocer esto previene accidentes.</p>
             </div>
           </div>
           
@@ -890,7 +686,7 @@
             </div>
             <div class="rules-final-content">
               <h4>Usa el EPP Correcto</h4>
-              <p>El EPP no evita el accidente, pero marca la diferencia entre un susto y una lesión permanente. Usa guantes, gafas y protección respiratoria cuando se indique.</p>
+              <p>La Sección 8 de la HDS de SWIPE es clara: gafas protectoras siempre y guantes para contacto prolongado. El EPP correcto marca la diferencia entre un susto y una lesión.</p>
             </div>
           </div>
           
@@ -899,13 +695,13 @@
               <i class="fa-solid fa-circle-check" style="font-size: 0.8em;"></i>
             </div>
             <div class="rules-final-content">
-              <h4>No Mezcles a Ciegas</h4>
-              <p>Los productos químicos reaccionan. Mezclas incompatibles (como cloro con ácidos o amoníaco) liberan vapores letales. Mantén siempre las sustancias aisladas y en recipientes autorizados.</p>
+              <h4>No Mezcles Sin Consultar la HDS</h4>
+              <p>SWIPE + hipoclorito de sodio = reacción peligrosa (Sección 10 HDS). Antes de combinar cualquier producto de limpieza, verifica la compatibilidad en la HDS. Siempre.</p>
             </div>
           </div>
         </div>
         <aside class="notes">
-          Para finalizar, llevemos a casa estas 3 reglas de vida. Si cumplimos con identificar la sustancia, usar el equipo de protección correcto y evitar mezclas incompatibles, reducimos a un mínimo los riesgos operativos. Su seguridad es lo más importante.
+          Para finalizar, llevemos a casa estas 3 reglas ancladas en los datos reales de la HDS de SWIPE. El pH 12-14 es alcalino fuerte; la incompatibilidad con hipoclorito está documentada en la Sección 10; y el EPP en la Sección 8. No son reglas abstractas, son datos concretos de la hoja que tienen disponible en su área de trabajo.
         </aside>
       </section>
 
@@ -917,7 +713,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.min.js"></script>
   
   <script>
-    // Inicialización de Reveal.js según requerimientos
+    // Inicialización de Reveal.js
     Reveal.initialize({
       controls: true,
       progress: true,
@@ -926,46 +722,37 @@
       plugins: [ RevealNotes ]
     });
 
-    // Lógica del Cronómetro Digital
+    // Cronómetro Digital de Cuenta Regresiva
     let intervalId = null;
     
     function iniciarCronometro() {
       const display = document.getElementById('display-cronometro');
       const btn = document.getElementById('btn-iniciar');
       
-      // Ocultar botón
-      if (btn) {
-        btn.style.display = 'none';
-      }
+      if (btn) btn.style.display = 'none';
       
-      let tiempoRestante = 120; // 2 minutos (120 segundos)
+      let tiempoRestante = 120;
       
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
+      if (intervalId) clearInterval(intervalId);
       
       function actualizarDisplay() {
         const minutos = Math.floor(tiempoRestante / 60);
         const segundos = tiempoRestante % 60;
-        
-        const minutosStr = minutos < 10 ? '0' + minutos : minutos;
-        const segundosStr = segundos < 10 ? '0' + segundos : segundos;
-        
-        display.textContent = `${minutosStr}:${segundosStr}`;
+        const mm = minutos < 10 ? '0' + minutos : minutos;
+        const ss = segundos < 10 ? '0' + segundos : segundos;
+        display.textContent = `${mm}:${ss}`;
       }
       
       actualizarDisplay();
       
       intervalId = setInterval(() => {
         tiempoRestante--;
-        
         if (tiempoRestante <= 0) {
           clearInterval(intervalId);
           tiempoRestante = 0;
           display.style.color = 'var(--color-danger)';
           display.style.textShadow = '0 0 15px rgba(231, 76, 60, 0.8)';
         }
-        
         actualizarDisplay();
       }, 1000);
     }

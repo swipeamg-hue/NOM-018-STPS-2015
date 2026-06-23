@@ -727,14 +727,14 @@
     /* Mobile Responsive Overrides for Slide 8 (No scaling for native feel) */
     @media (max-width: 768px) {
       /* Disable Reveal.js scale transform when Slide 8 is active */
-      .reveal:has(section.taller-section.present) .slides {
+      .reveal.taller-active .slides {
         transform: none !important;
         width: 100% !important;
         height: 100% !important;
         inset: 0 !important;
       }
       
-      .reveal .slides section.taller-section.present {
+      .reveal.taller-active .slides section.taller-section.present {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
@@ -1273,6 +1273,13 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
       minScale: 0.2,
       maxScale: 2.0,
       plugins: [ RevealNotes ]
+    }).then(() => {
+      // Activar clase taller-active en carga inicial si estamos en la diapositiva del taller
+      const currentSlide = Reveal.getCurrentSlide();
+      if (currentSlide && currentSlide.classList.contains('taller-section')) {
+        const revealEl = document.querySelector('.reveal');
+        if (revealEl) revealEl.classList.add('taller-active');
+      }
     });
 
     // Cronómetro Digital de Cuenta Regresiva
@@ -1371,8 +1378,18 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
       }
     }
 
-    // Reiniciar quiz al regresar a la diapositiva
-    Reveal.on('slidechanged', () => {
+    // Reiniciar quiz al regresar a la diapositiva y manejar clase responsiva taller-active
+    Reveal.on('slidechanged', (event) => {
+      const isTaller = event.currentSlide && event.currentSlide.classList.contains('taller-section');
+      const revealEl = document.querySelector('.reveal');
+      if (revealEl) {
+        if (isTaller) {
+          revealEl.classList.add('taller-active');
+        } else {
+          revealEl.classList.remove('taller-active');
+        }
+      }
+
       opcionSeleccionada = null;
       ['a', 'b', 'c'].forEach(o => {
         const el = document.getElementById('opcion-' + o);

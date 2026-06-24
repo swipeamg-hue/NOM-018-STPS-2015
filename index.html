@@ -847,31 +847,36 @@
       width: 180px;
     }
 
-    /* Slide 4b (Pictogramas SGA): Override Reveal.js centering */
-    .reveal .slides section.ghs-section {
+    /* Slide 4b (Pictogramas SGA): Wrapper absoluto que cubre todo el slide */
+    /* Esto es inmune al centrado de Reveal.js, que opera sobre la section entera */
+    .ghs-slide-wrapper {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
       justify-content: flex-start !important;
-      padding: 15px 20px 10px 20px !important;
-      overflow: hidden !important;
+      padding: 20px 24px 10px 24px !important;
       box-sizing: border-box !important;
+      overflow: hidden !important;
+      z-index: 1 !important;
     }
-    .ghs-slide-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      flex: 1;
-      overflow: hidden;
-    }
-    /* Forzar que h2 y p dentro del wrapper no sean reposicionados por Reveal */
-    .ghs-section .ghs-slide-wrapper h2,
-    .ghs-section .ghs-slide-wrapper p {
-      position: relative !important;
+    .ghs-slide-wrapper h2 {
+      position: static !important;
       transform: none !important;
-      margin-bottom: 6px !important;
       flex-shrink: 0;
+      margin: 0 0 6px 0 !important;
+    }
+    .ghs-slide-wrapper p {
+      position: static !important;
+      transform: none !important;
+      flex-shrink: 0;
+      margin: 0 0 6px 0 !important;
     }
 
     /* Flip Cards GHS (Nueva Diapositiva 4b) */
@@ -1892,7 +1897,7 @@
       </section>
 
       <!-- Diapositiva 4b: Pictogramas SGA -->
-      <section class="ghs-section" data-background-gradient="radial-gradient(circle, #0e1726 0%, #050810 100%)">
+      <section class="ghs-section" style="position:relative; overflow:hidden;" data-background-gradient="radial-gradient(circle, #0e1726 0%, #050810 100%)">
         <div class="ghs-slide-wrapper">
           <h2 class="slide-title-compact">Pictogramas SGA en la NOM-018</h2>
           <p class="slide-desc-compact">Haz clic en cada pictograma para descubrir su significado y su relación con SWIPE.</p>

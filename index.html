@@ -847,52 +847,22 @@
       width: 180px;
     }
 
-    /* Slide 4b (Pictogramas SGA): Wrapper absoluto que cubre todo el slide */
-    /* Esto es inmune al centrado de Reveal.js, que opera sobre la section entera */
-    .ghs-slide-wrapper {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: flex-start !important;
-      padding: 20px 24px 10px 24px !important;
-      box-sizing: border-box !important;
-      overflow: hidden !important;
-      z-index: 1 !important;
-    }
-    .ghs-slide-wrapper h2 {
-      position: static !important;
-      transform: none !important;
-      flex-shrink: 0;
-      margin: 0 0 6px 0 !important;
-    }
-    .ghs-slide-wrapper p {
-      position: static !important;
-      transform: none !important;
-      flex-shrink: 0;
-      margin: 0 0 6px 0 !important;
-    }
+    /* Slide 4b GHS: forzar top:0 via JS (ver Reveal.on slidechanged más abajo) */
 
     /* Flip Cards GHS (Nueva Diapositiva 4b) */
     .ghs-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 16px;
       width: 100%;
-      max-width: 1100px;
-      margin: 15px auto 0 auto;
+      max-width: 1080px;
+      margin: 0 auto;
       box-sizing: border-box;
     }
     .ghs-flip-card {
       background: transparent;
       perspective: 1000px;
-      height: 230px;
+      height: 190px;
       cursor: pointer;
     }
     .ghs-card-inner {
@@ -1897,7 +1867,7 @@
       </section>
 
       <!-- Diapositiva 4b: Pictogramas SGA -->
-      <section data-background-gradient="radial-gradient(circle, #0e1726 0%, #050810 100%)">
+      <section class="ghs-section" data-background-gradient="radial-gradient(circle, #0e1726 0%, #050810 100%)">
         <!-- Sin flex/r-vstack: flujo de bloque normal garantiza que título quede ARRIBA de las tarjetas -->
         <div style="display:block; width:100%; text-align:center; margin-bottom:6px;">
           <span style="font-size:26px; font-weight:800; color:#fff; font-family:'Outfit',sans-serif; line-height:1.3; display:block;">Pictogramas SGA en la NOM-018</span>
@@ -2304,6 +2274,18 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
       maxScale: 2.0,
       plugins: [ RevealNotes ]
     });
+
+    // Fix diapositiva 4b (GHS): evitar que center:true mueva el slide mal
+    // Reveal.js centra las secciones ajustando 'top' via JS; lo neutralizamos en el slide GHS
+    function fixGHSSlide() {
+      const ghsSection = document.querySelector('.reveal .slides section.ghs-section');
+      if (ghsSection) {
+        ghsSection.style.top = '0px';
+        ghsSection.style.paddingTop = '20px';
+      }
+    }
+    Reveal.on('ready', fixGHSSlide);
+    Reveal.on('slidechanged', fixGHSSlide);
 
     // --- Inicialización General al Cargar la Página ---
     window.addEventListener('DOMContentLoaded', () => {

@@ -502,16 +502,566 @@
       display: flex;
       gap: 14px;
       background: var(--color-surface);
-      padding: 13px 16px;
-      border-radius: 10px;
-      border: 1px solid rgba(46, 204, 113, 0.05);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      align-items: center;
-      transition: all 0.3s ease;
-    }
+}
     .rules-final-num { font-family: var(--font-main); font-size: 1.4em; font-weight: 800; color: var(--color-success); width: 40px; height: 40px; border-radius: 50%; background: rgba(46, 204, 113, 0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .rules-final-content h4 { margin: 0 0 3px 0 !important; font-size: 1em !important; color: #fff !important; }
     .rules-final-content p { margin: 0 !important; font-size: 0.75em; color: var(--color-text-muted); line-height: 1.35; }
+
+    /* Flip Cards GHS Mobile */
+    @media (max-width: 768px) {
+      .ghs-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        width: 100% !important;
+      }
+      .ghs-flip-card {
+        height: 170px !important;
+      }
+      .ghs-card-front {
+        padding: 10px !important;
+      }
+      .ghs-card-front h3 {
+        font-size: 0.95em !important;
+      }
+      .ghs-diamond {
+        width: 45px !important;
+        height: 45px !important;
+        border-width: 2px !important;
+        margin-bottom: 10px !important;
+      }
+      .ghs-diamond i {
+        font-size: 1.3em !important;
+      }
+      .ghs-card-back {
+        padding: 10px !important;
+        font-size: 0.75em !important;
+      }
+      .ghs-card-back h4 {
+        font-size: 0.95em !important;
+        margin-bottom: 4px !important;
+      }
+      .ghs-card-back p {
+        margin-bottom: 4px !important;
+      }
+      
+      /* Lab Simulator Mobile */
+      .lab-shelves {
+        flex-direction: column !important;
+        gap: 16px !important;
+      }
+      .lab-chemical {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 10px !important;
+      }
+      .flask-workspace {
+        height: 200px !important;
+        order: -1 !important; /* Coloca el matraz arriba en móviles */
+      }
+      .reaction-result-alert {
+        width: 100% !important;
+      }
+      .reaction-header {
+        font-size: 0.95em !important;
+        padding: 10px 14px !important;
+      }
+      .reaction-body {
+        padding: 10px 14px !important;
+        font-size: 0.85em !important;
+      }
+    }
+
+    /* --- ESTRUCTURAS NUEVAS ADICIONALES --- */
+    
+    /* Fondo de Partículas */
+    #bg-particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* 3D Tilt Cards */
+    .tilt-card {
+      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+    .tilt-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at var(--shine-x, 50%) var(--shine-y, 50%), rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 65%);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* Simulador de Laboratorio (Slide 2) */
+    .lab-simulator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin: 0 auto;
+      max-width: 950px;
+      width: 100%;
+      position: relative;
+      z-index: 5;
+    }
+    .lab-shelves {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      gap: 30px;
+    }
+    .lab-chemical {
+      flex: 1;
+      background: var(--color-surface);
+      border: 1.5px solid rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      user-select: none;
+    }
+    .lab-chemical:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+    }
+    #chem-swipe:hover { border-color: var(--color-primary); }
+    #chem-cloro:hover { border-color: #e67e22; }
+    .lab-chemical.added {
+      opacity: 0.4;
+      pointer-events: none;
+      border-color: rgba(255, 255, 255, 0.05);
+      transform: none;
+      box-shadow: none;
+    }
+    .lab-bottle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.1em;
+    }
+    .chem-desc {
+      font-size: 0.7em;
+      color: var(--color-text-muted);
+      margin: 8px 0 0 0 !important;
+    }
+    .flask-workspace {
+      flex: 1.3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: 240px;
+    }
+    
+    /* Morphing Flask */
+    .flask-outer {
+      width: 110px;
+      height: 130px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 5;
+    }
+    .flask-neck {
+      width: 28px;
+      height: 35px;
+      border: 3px solid rgba(255, 255, 255, 0.35);
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+      background: transparent;
+    }
+    .flask-body {
+      width: 110px;
+      height: 95px;
+      border: 3px solid rgba(255, 255, 255, 0.35);
+      border-radius: 0 0 55px 55px;
+      background: rgba(255, 255, 255, 0.03);
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+    .liquid {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1), bottom 0.8s cubic-bezier(0.4, 0, 0.2, 1), background 0.5s ease;
+      border-radius: 0 0 45px 45px;
+    }
+    .swipe-liquid {
+      background: rgba(52, 152, 219, 0.65);
+      box-shadow: inset 0 0 10px rgba(52, 152, 219, 0.8);
+    }
+    .cloro-liquid {
+      background: rgba(230, 126, 34, 0.55);
+      box-shadow: inset 0 0 10px rgba(230, 126, 34, 0.7);
+    }
+    
+    /* Streams of liquids */
+    .stream {
+      position: absolute;
+      width: 4px;
+      height: 0;
+      pointer-events: none;
+      top: 50px;
+      z-index: 4;
+      opacity: 0;
+      border-radius: 2px;
+    }
+    .swipe-stream {
+      left: calc(50% - 32px);
+      background: #3498db;
+    }
+    .cloro-stream {
+      right: calc(50% - 32px);
+      background: #e67e22;
+    }
+    
+    /* Animations for pouring */
+    @keyframes pour-swipe {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      35% { transform: translate(65px, -35px) rotate(50deg); }
+      75% { transform: translate(65px, -35px) rotate(50deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+    .pouring-swipe {
+      animation: pour-swipe 1.6s ease-in-out;
+    }
+    @keyframes pour-cloro {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      35% { transform: translate(-65px, -35px) rotate(-50deg); }
+      75% { transform: translate(-65px, -35px) rotate(-50deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+    .pouring-cloro {
+      animation: pour-cloro 1.6s ease-in-out;
+    }
+    
+    @keyframes stream-down {
+      0% { height: 0; opacity: 0; }
+      20% { height: 95px; opacity: 1; }
+      75% { height: 95px; opacity: 1; }
+      100% { height: 0; opacity: 0; }
+    }
+    .stream-active {
+      animation: stream-down 1.6s ease-in-out;
+    }
+
+    @keyframes shake-flask {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      15% { transform: translate(-8px, 3px) rotate(-5deg); }
+      30% { transform: translate(8px, -3px) rotate(5deg); }
+      45% { transform: translate(-5px, -2px) rotate(-2.5deg); }
+      60% { transform: translate(5px, 2px) rotate(2.5deg); }
+      75% { transform: translate(-3px, 1px) rotate(-1deg); }
+      90% { transform: translate(3px, -1px) rotate(1deg); }
+    }
+    .flask-outer.shake {
+      animation: shake-flask 0.9s ease-in-out;
+    }
+    
+    /* Gas Cloud Animation */
+    .gas-cloud {
+      position: absolute;
+      top: -30px;
+      left: 15px;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, rgba(196, 229, 56, 0.6) 0%, rgba(241, 196, 15, 0.2) 40%, rgba(255, 255, 255, 0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      display: none;
+      z-index: 10;
+    }
+    @keyframes rise-gas {
+      0% { transform: translateY(0px) scale(0.6); opacity: 0; filter: blur(4px); }
+      35% { opacity: 0.85; filter: blur(8px); }
+      70% { opacity: 0.5; }
+      100% { transform: translateY(-110px) scale(2.2); opacity: 0; filter: blur(18px); }
+    }
+    .gas-cloud.gas-active {
+      display: block;
+      animation: rise-gas 2s ease-in-out infinite;
+    }
+    
+    /* Reaction alert box styling */
+    .reaction-result-alert {
+      width: 100%;
+      border-radius: 12px;
+      border: 2px solid rgba(231, 76, 60, 0.3);
+      box-shadow: 0 15px 35px rgba(231, 76, 60, 0.15);
+      background: var(--color-surface);
+      overflow: hidden;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(15px);
+      pointer-events: none;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .reaction-result-alert.show-alert {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .reaction-header {
+      background: var(--color-danger);
+      color: #fff;
+      padding: 12px 18px;
+      font-weight: 800;
+      font-size: 1.1em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.5px;
+    }
+    .reaction-body {
+      padding: 16px 18px;
+      font-size: 0.76em;
+      line-height: 1.45;
+      color: var(--color-text);
+    }
+    .lab-controls {
+      margin-top: 15px;
+      display: flex;
+      gap: 12px;
+      width: 180px;
+    }
+
+    /* Flip Cards GHS (Nueva Diapositiva 4b) */
+    .ghs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      width: 100%;
+      max-width: 1100px;
+      margin: 15px auto 0 auto;
+      box-sizing: border-box;
+    }
+    .ghs-flip-card {
+      background: transparent;
+      perspective: 1000px;
+      height: 230px;
+      cursor: pointer;
+    }
+    .ghs-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    .ghs-flip-card.flipped .ghs-card-inner {
+      transform: rotateY(180deg);
+    }
+    .ghs-card-front, .ghs-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 14px;
+      border: 1.5px solid rgba(255, 255, 255, 0.05);
+      box-sizing: border-box;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .ghs-card-front {
+      background: var(--color-surface);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      transition: border-color 0.3s;
+    }
+    .ghs-flip-card:hover .ghs-card-front {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    .ghs-card-front h3 {
+      margin: 0 !important;
+      font-size: 1.05em !important;
+      color: #fff !important;
+      font-weight: 700 !important;
+    }
+    .ghs-card-back {
+      background: radial-gradient(circle at center, #1b263b 0%, #0c121e 100%);
+      color: white;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      font-size: 0.65em;
+      line-height: 1.4;
+      text-align: left;
+    }
+    .ghs-card-back h4 {
+      margin: 0 0 6px 0 !important;
+      font-size: 1.1em !important;
+      color: #fff !important;
+      font-weight: 800 !important;
+      text-align: center;
+      width: 100%;
+    }
+    .ghs-card-back p {
+      margin: 0 0 8px 0 !important;
+      color: var(--color-text-muted);
+    }
+    .ghs-card-back .swipe-relation {
+      border-top: 1px dashed rgba(255, 255, 255, 0.12);
+      padding-top: 6px;
+      font-style: italic;
+      color: var(--color-warning);
+    }
+    .ghs-diamond {
+      width: 60px;
+      height: 60px;
+      border: 3px solid #e74c3c;
+      background: white;
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px rgba(231, 76, 60, 0.35);
+      margin-bottom: 20px;
+    }
+    .ghs-diamond i {
+      transform: rotate(-45deg);
+      color: #111;
+      font-size: 1.8em;
+    }
+
+    /* Hotspots en Diapositiva 8 */
+    .taller-product-img-box {
+      position: relative; /* Habilitar coordenadas absolutas */
+    }
+    .hotspot {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+    }
+    .hotspot::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: inherit;
+      animation: pulse-hotspot 1.8s infinite;
+    }
+    @keyframes pulse-hotspot {
+      0% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.6); }
+      70% { transform: scale(2.4); opacity: 0; box-shadow: 0 0 0 8px rgba(52, 152, 219, 0); }
+      100% { transform: scale(1); opacity: 0; box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
+    }
+    .hotspot-primary { background: var(--color-primary); }
+    
+    .hotspot-warning { background: var(--color-warning); }
+    .hotspot-warning::after {
+      animation: pulse-hotspot-warning 1.8s infinite;
+    }
+    @keyframes pulse-hotspot-warning {
+      0% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.6); }
+      70% { transform: scale(2.4); opacity: 0; box-shadow: 0 0 0 8px rgba(241, 196, 15, 0); }
+      100% { transform: scale(1); opacity: 0; box-shadow: 0 0 0 0 rgba(241, 196, 15, 0); }
+    }
+    
+    .hotspot-success { background: var(--color-success); }
+    .hotspot-success::after {
+      animation: pulse-hotspot-success 1.8s infinite;
+    }
+    @keyframes pulse-hotspot-success {
+      0% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.6); }
+      70% { transform: scale(2.4); opacity: 0; box-shadow: 0 0 0 8px rgba(46, 204, 113, 0); }
+      100% { transform: scale(1); opacity: 0; box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+    }
+    
+    .hotspot-tooltip {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) scale(0.85);
+      background: #1e2430;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 9px 12px;
+      border-radius: 8px;
+      width: 200px;
+      font-size: 0.68em;
+      line-height: 1.4;
+      text-align: left;
+      pointer-events: none;
+      opacity: 0;
+      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 25;
+    }
+    .hotspot-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: #1e2430;
+    }
+    .hotspot:hover .hotspot-tooltip, .hotspot.active-tooltip .hotspot-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+      pointer-events: auto;
+    }
+
+    /* Barra de progreso de Cronómetro */
+    .timer-progress-bg {
+      width: 100%;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 3px;
+      margin-bottom: 2px;
+    }
+    .timer-progress-fill {
+      width: 100%;
+      height: 100%;
+      background: var(--color-neon-green);
+      transition: width 1s linear, background-color 1.0s ease;
+      border-radius: 3px;
+    }
+    
+    /* Quiz shake animation on wrong answer */
+    @keyframes shake-incorrect {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+    .quiz-option.shake-incorrect {
+      animation: shake-incorrect 0.4s ease-in-out;
+    }
+  </style>
 
     /* --- Quiz Interactivo --- */
     .quiz-option {
@@ -1145,16 +1695,16 @@
 </head>
 <body>
 
-  <div class="reveal">
+<div class="reveal">
     <div class="slides">
       
       <!-- MÓDULO 1: INTRODUCCIÓN -->
       
       <!-- Diapositiva 1: Título -->
-      <section data-background-gradient="radial-gradient(circle, #1a2238 0%, #0b0d13 100%)">
+      <section data-auto-animate data-background-gradient="radial-gradient(circle, #1a2238 0%, #0b0d13 100%)">
         <div class="slide-container">
           <div class="icon-container-main floating">
-            <i class="fa-solid fa-flask fa-3x title-icon"></i>
+            <i data-id="main-flask-icon" class="fa-solid fa-flask fa-3x title-icon"></i>
           </div>
           <h1 class="title-main">NOM-018-STPS-2015</h1>
           <h3 class="title-sub">El idioma universal de los químicos</h3>
@@ -1165,35 +1715,70 @@
       </section>
 
       <!-- Diapositiva 2: ¿Limpiar o arriesgar? -->
-      <section data-background-gradient="radial-gradient(circle, #221515 0%, #0a0707 100%)">
+      <section data-auto-animate data-background-gradient="radial-gradient(circle, #221515 0%, #0a0707 100%)">
         <h2 class="slide-title-danger">¿Limpiar mejor o arriesgar tu vida?</h2>
-        <p class="slide-desc-medium">Una mezcla común puede resultar fatal. La HDS de SWIPE lo confirma: <em>incompatible con hipoclorito de sodio.</em></p>
+        <p class="slide-desc-medium" style="margin-bottom: 12px !important;">Una mezcla común puede resultar fatal. La HDS de SWIPE confirma su incompatibilidad:</p>
         
-        <div class="equation-container">
-          <div class="equation-term">
-            <i class="fa-solid fa-bottle-water fa-2x eq-icon-swipe"></i>
-            <span class="label">SWIPE</span>
-            <span class="desc">Desengrasante (pH 12-14, alcalino)</span>
+        <div class="lab-simulator">
+          <div class="lab-shelves">
+            <!-- Botella SWIPE -->
+            <div class="lab-chemical" id="chem-swipe" onclick="addChemical('swipe')">
+              <div class="lab-bottle">
+                <i class="fa-solid fa-bottle-water fa-2x eq-icon-swipe"></i>
+                <span>SWIPE®</span>
+              </div>
+              <p class="chem-desc">Desengrasante (pH 12–14)</p>
+            </div>
+
+            <!-- Espacio del Matraz -->
+            <div class="flask-workspace">
+              <div data-id="main-flask-icon" class="flask-outer" id="lab-flask">
+                <div class="flask-neck"></div>
+                <div class="flask-body">
+                  <div class="liquid swipe-liquid" id="liq-swipe"></div>
+                  <div class="liquid cloro-liquid" id="liq-cloro"></div>
+                  <div class="gas-cloud" id="gas-cloud-anim"></div>
+                </div>
+              </div>
+              
+              <!-- Chorros de vertido -->
+              <div class="stream swipe-stream" id="stream-swipe"></div>
+              <div class="stream cloro-stream" id="stream-cloro"></div>
+              
+              <div class="lab-controls">
+                <button id="btn-mix" class="btn-verificar" onclick="triggerMixReaction()" disabled>
+                  <i class="fa-solid fa-shuffle"></i> Mezclar Reactivos
+                </button>
+                <button id="btn-reset-mix" class="btn-primary hide-element" onclick="resetMixer()">
+                  <i class="fa-solid fa-arrow-rotate-left"></i> Limpiar Matraz
+                </button>
+              </div>
+            </div>
+
+            <!-- Botella Cloro -->
+            <div class="lab-chemical" id="chem-cloro" onclick="addChemical('cloro')">
+              <div class="lab-bottle">
+                <i class="fa-solid fa-droplet fa-2x eq-icon-cloro"></i>
+                <span>CLORO</span>
+              </div>
+              <p class="chem-desc">Hipoclorito de Sodio</p>
+            </div>
           </div>
-          <div class="equation-operator">
-            <i class="fa-solid fa-plus fa-lg"></i>
-          </div>
-          <div class="equation-term">
-            <i class="fa-solid fa-droplet fa-2x eq-icon-cloro"></i>
-            <span class="label">Cloro</span>
-            <span class="desc">Hipoclorito de Sodio</span>
-          </div>
-          <div class="equation-operator">
-            <i class="fa-solid fa-equals fa-lg"></i>
-          </div>
-          <div class="equation-term danger-border fragment">
-            <i class="fa-solid fa-skull-crossbones fa-2x pulse-effect eq-icon-danger"></i>
-            <span class="label label-danger">Reacción Peligrosa</span>
-            <span class="desc">Gas Cloro · Óxidos de Sodio (Sección 10 HDS)</span>
+
+          <!-- Caja de Alerta de Reacción -->
+          <div class="reaction-result-alert" id="reaction-alert">
+            <div class="reaction-header">
+              <i class="fa-solid fa-skull-crossbones pulse-effect"></i>
+              <span>¡REACCIÓN PELIGROSA! (HDS Sección 10)</span>
+            </div>
+            <div class="reaction-body">
+              Al mezclar <strong>SWIPE® (pH 12-14)</strong> con <strong>Hipoclorito de Sodio</strong>, se libera rápidamente <strong>Gas Cloro (tóxico/asfixiante)</strong> y Óxidos de Sodio. La reacción es exotérmica y volatiliza el cloro activo. ¡Nunca realices esta mezcla en el taller!
+            </div>
           </div>
         </div>
+        
         <aside class="notes">
-          Este ejemplo es REAL y está documentado en la Sección 10 de la HDS de SWIPE. Bajo "Materiales Incompatibles" se especifica explícitamente: "No compatible con hipoclorito de sodio". Y bajo "Productos de descomposición peligrosa" se citan Óxidos de Sodio. Esta es la razón por la que necesitamos leer la HDS.
+          Este simulador interactivo ilustra lo que indica la Sección 10 de la HDS de SWIPE. Bajo "Materiales Incompatibles" se especifica: "No compatible con hipoclorito de sodio". La mezcla libera Gas Cloro, un agente químico altamente irritante y asfixiante que puede causar daños pulmonares graves inmediatos.
         </aside>
       </section>
 
@@ -1203,7 +1788,7 @@
         <p class="slide-desc-compact">Responsabilidades compartidas en el manejo seguro de sustancias químicas.</p>
         
         <div class="grid-2-cols grid-gap-40">
-          <div class="rules-card">
+          <div class="rules-card tilt-card">
             <div class="rules-header header-primary">
               <i class="fa-solid fa-building style-icon icon-primary"></i>
               <h3>La Empresa</h3>
@@ -1224,7 +1809,7 @@
             </ul>
           </div>
           
-          <div class="rules-card">
+          <div class="rules-card tilt-card">
             <div class="rules-header header-success">
               <i class="fa-solid fa-user-shield style-icon icon-success"></i>
               <h3>Tú (El Trabajador)</h3>
@@ -1268,13 +1853,105 @@
         </aside>
       </section>
 
+      <!-- Diapositiva 4b: Pictogramas SGA -->
+      <section data-background-gradient="radial-gradient(circle, #0e1726 0%, #050810 100%)">
+        <h2 class="slide-title-compact">Pictogramas SGA en la NOM-018</h2>
+        <p class="slide-desc-compact">Haz clic en cada pictograma para descubrir su significado y su relación con SWIPE.</p>
+        
+        <div class="ghs-grid">
+          <!-- Tarjeta 1: Irritación (Exclamación) -->
+          <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="ghs-card-inner">
+              <div class="ghs-card-front">
+                <div class="ghs-diamond">
+                  <div class="ghs-icon-wrapper">
+                    <i class="fa-solid fa-exclamation"></i>
+                  </div>
+                </div>
+                <h3>Exclamación</h3>
+              </div>
+              <div class="ghs-card-back">
+                <h4>Signo de Exclamación</h4>
+                <p>Indica peligros a la salud como irritación cutánea u ocular, sensibilización dérmica o toxicidad menor.</p>
+                <div class="swipe-relation">
+                  <strong>En SWIPE:</strong> Provoca leve irritación ocular por contacto y ligera irritación dérmica por desengrase. ¡Símbolo oficial en su etiqueta!
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tarjeta 2: Corrosión -->
+          <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="ghs-card-inner">
+              <div class="ghs-card-front">
+                <div class="ghs-diamond">
+                  <div class="ghs-icon-wrapper">
+                    <i class="fa-solid fa-fill-drip"></i>
+                  </div>
+                </div>
+                <h3>Corrosión</h3>
+              </div>
+              <div class="ghs-card-back">
+                <h4>Corrosión Cutánea</h4>
+                <p>Indica sustancias capaces de destruir metales, causar quemaduras graves en la piel y lesiones oculares irreversibles.</p>
+                <div class="swipe-relation">
+                  <strong>En SWIPE:</strong> pH de 12-14. Aunque diluido es seguro, en estado puro concentrado requiere guantes y gafas protectoras.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tarjeta 3: Medio Ambiente -->
+          <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="ghs-card-inner">
+              <div class="ghs-card-front">
+                <div class="ghs-diamond">
+                  <div class="ghs-icon-wrapper">
+                    <i class="fa-solid fa-fish"></i>
+                  </div>
+                </div>
+                <h3>Medio Ambiente</h3>
+              </div>
+              <div class="ghs-card-back">
+                <h4>Peligro Acuático</h4>
+                <p>Indica sustancias de toxicidad aguda o crónica para organismos acuáticos que dañan el ecosistema.</p>
+                <div class="swipe-relation">
+                  <strong>En SWIPE:</strong> Tóxico para fauna acuática (Sección 12 HDS). Prohibido desechar concentrado directamente en drenajes o ríos.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tarjeta 4: Llama (Contraste) -->
+          <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="ghs-card-inner">
+              <div class="ghs-card-front">
+                <div class="ghs-diamond">
+                  <div class="ghs-icon-wrapper">
+                    <i class="fa-solid fa-fire"></i>
+                  </div>
+                </div>
+                <h3>Inflamable</h3>
+              </div>
+              <div class="ghs-card-back">
+                <h4>Llama / Combustión</h4>
+                <p>Identifica gases, aerosoles, líquidos y sólidos inflamables que arden con facilidad frente a chispas o calor.</p>
+                <div class="swipe-relation">
+                  <strong>En SWIPE:</strong> ¡No inflamable! Es base agua y no arde, lo que reduce el riesgo de incendio en áreas calientes del taller.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Diapositiva 5: Palabras de Advertencia -->
       <section data-background-gradient="radial-gradient(circle, #1c1f24 0%, #0a0d10 100%)">
         <h2 class="slide-title-m10">Palabras de Advertencia</h2>
         <p class="slide-desc-m18">Indicadores visuales rápidos sobre el nivel de peligro de la sustancia.</p>
         
         <div class="grid-2-cols grid-centered-gap-40">
-          <div class="alert-card danger-card fragment">
+          <div class="alert-card danger-card fragment tilt-card">
             <div class="alert-header">
               <i class="fa-solid fa-triangle-exclamation"></i>
               <span>PELIGRO</span>
@@ -1285,7 +1962,7 @@
             </div>
           </div>
           
-          <div class="alert-card warning-card fragment">
+          <div class="alert-card warning-card fragment tilt-card">
             <div class="alert-header">
               <i class="fa-solid fa-circle-exclamation"></i>
               <span>ATENCIÓN</span>
@@ -1342,7 +2019,7 @@
         <p class="slide-desc-m10">La HDS de SWIPE tiene 16 secciones. En emergencias, estas 4 son vitales.</p>
         
         <div class="hds-grid">
-          <div class="hds-card">
+          <div class="hds-card tilt-card">
             <div class="hds-icon-box icon-box-danger">
               <i class="fa-solid fa-kit-medical icon-danger-red"></i>
             </div>
@@ -1351,7 +2028,7 @@
             <p>Ojos: lavar con agua abundante. Piel: retirar y lavar. Ingestión: consultar médico. Inhalación: aire fresco.</p>
           </div>
           
-          <div class="hds-card">
+          <div class="hds-card tilt-card">
             <div class="hds-icon-box icon-box-primary">
               <i class="fa-solid fa-bucket icon-primary-blue"></i>
             </div>
@@ -1360,7 +2037,7 @@
             <p>Contener con material absorbente no combustible. No permitir contacto con suelo o canales de agua.</p>
           </div>
           
-          <div class="hds-card">
+          <div class="hds-card tilt-card">
             <div class="hds-icon-box icon-box-warning">
               <i class="fa-solid fa-boxes-stacked icon-warning-yellow"></i>
             </div>
@@ -1369,7 +2046,7 @@
             <p>Guardar entre 3°C y 40°C. Lejos del calor. Recipiente hermético y etiquetado. Fuera del alcance de niños.</p>
           </div>
           
-          <div class="hds-card">
+          <div class="hds-card tilt-card">
             <div class="hds-icon-box icon-box-success">
               <i class="fa-solid fa-user-shield icon-success-green-fill"></i>
             </div>
@@ -1385,6 +2062,7 @@
 
       <!-- Diapositiva 8: Taller SWIPE + Cronómetro -->
       <section data-background-gradient="radial-gradient(circle, #1b211f 0%, #080d0b 100%)" class="taller-section">
+        <canvas id="confetti-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99;"></canvas>
         <h2 class="taller-title">Taller Rápido: Dinámica SWIPE</h2>
         
         <div class="taller-grid">
@@ -1396,6 +2074,30 @@
             <div class="taller-product-header">
               <div class="taller-product-img-box">
                 <img src="swipe.png" alt="SWIPE Concentrado Porrón 20 Litros" class="taller-product-img">
+                
+                <!-- Hotspot 1: NSF -->
+                <div class="hotspot hotspot-success" style="top: 15%; left: 75%;">
+                  <div class="hotspot-tooltip">
+                    <strong>Grado Alimenticio A1 (NSF)</strong><br>
+                    Registro NSF #148131: Aprobado para usarse como limpiador general en áreas de procesamiento de alimentos.
+                  </div>
+                </div>
+
+                <!-- Hotspot 2: Label / SGA -->
+                <div class="hotspot hotspot-warning" style="top: 45%; left: 48%;">
+                  <div class="hotspot-tooltip">
+                    <strong>Comunicación de Peligros</strong><br>
+                    Lleva la palabra de advertencia <strong>ATENCIÓN</strong> y el pictograma del signo de exclamación según la NOM-018.
+                  </div>
+                </div>
+
+                <!-- Hotspot 3: pH / Químico -->
+                <div class="hotspot hotspot-primary" style="top: 75%; left: 30%;">
+                  <div class="hotspot-tooltip">
+                    <strong>Alcalinidad Fuerte</strong><br>
+                    pH de 12–14. Alto poder desengrasante, pero incompatible con hipoclorito de sodio y ácidos.
+                  </div>
+                </div>
               </div>
               <div class="taller-product-info">
                 <div class="taller-product-title">SWIPE® Concentrado</div>
@@ -1431,6 +2133,9 @@
             <!-- Cronómetro -->
             <div class="taller-timer-wrapper">
               <div id="display-cronometro">02:00</div>
+              <div class="timer-progress-bg">
+                <div id="timer-progress-bar" class="timer-progress-fill"></div>
+              </div>
               <button id="btn-iniciar" onclick="iniciarCronometro()" class="btn-primary">
                 <i class="fa-solid fa-play"></i> Iniciar Cronómetro (2 min)
               </button>
@@ -1551,17 +2256,264 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
       plugins: [ RevealNotes ]
     });
 
-    // Cronómetro Digital de Cuenta Regresiva
+    // --- Inicialización General al Cargar la Página ---
+    window.addEventListener('DOMContentLoaded', () => {
+      initBackgroundParticles();
+      initTiltEffect();
+      initHotspotsMobile();
+    });
+
+    // --- Fondo de Partículas Moleculares ---
+    function initBackgroundParticles() {
+      const canvas = document.createElement('canvas');
+      canvas.id = 'bg-particles';
+      document.body.prepend(canvas);
+      
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+      
+      const particles = [];
+      const particleCount = Math.min(60, Math.floor((width * height) / 25000));
+      
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+      
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.4;
+          this.vy = (Math.random() - 0.5) * 0.4;
+          this.radius = Math.random() * 2 + 1;
+          this.alpha = Math.random() * 0.3 + 0.15;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > width) this.vx = -this.vx;
+          if (this.y < 0 || this.y > height) this.vy = -this.vy;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(52, 152, 219, ${this.alpha})`;
+          ctx.fill();
+        }
+      }
+      
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+      
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < particles.length; i++) {
+          const p1 = particles[i];
+          p1.update();
+          p1.draw();
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
+            if (dist < 120) {
+              const alpha = (1 - dist / 120) * 0.08;
+              ctx.beginPath();
+              ctx.moveTo(p1.x, p1.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+    // --- Efecto 3D Tilt en Tarjetas ---
+    function initTiltEffect() {
+      const cards = document.querySelectorAll('.tilt-card');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const width = rect.width;
+          const height = rect.height;
+          
+          const rotateX = ((y / height) - 0.5) * -12;
+          const rotateY = ((x / width) - 0.5) * 12;
+          
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+          card.style.setProperty('--shine-x', `${(x / width) * 100}%`);
+          card.style.setProperty('--shine-y', `${(y / height) * 100}%`);
+        });
+        
+        card.style.setProperty('--shine-x', `50%`);
+        card.style.setProperty('--shine-y', `50%`);
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+          card.style.setProperty('--shine-x', `50%`);
+          card.style.setProperty('--shine-y', `50%`);
+        });
+      });
+    }
+
+    // --- Soporte Móvil Táctil para Hotspots ---
+    function initHotspotsMobile() {
+      const hotspots = document.querySelectorAll('.hotspot');
+      hotspots.forEach(el => {
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          hotspots.forEach(other => {
+            if (other !== el) other.classList.remove('active-tooltip');
+          });
+          el.classList.toggle('active-tooltip');
+        });
+      });
+      document.addEventListener('click', () => {
+        hotspots.forEach(el => el.classList.remove('active-tooltip'));
+      });
+    }
+
+    // --- Simulador de Mezclas de Químicos (Diapositiva 2) ---
+    let chemicalsAdded = { swipe: false, cloro: false };
+
+    function addChemical(type) {
+      if (chemicalsAdded[type]) return;
+      
+      const chemEl = document.getElementById('chem-' + type);
+      const streamEl = document.getElementById('stream-' + type);
+      const liqEl = document.getElementById('liq-' + type);
+      
+      if (!chemEl || !streamEl || !liqEl) return;
+      
+      chemicalsAdded[type] = true;
+      chemEl.classList.add('added');
+      
+      if (type === 'swipe') {
+        chemEl.classList.add('pouring-swipe');
+        setTimeout(() => streamEl.classList.add('stream-active'), 400);
+        setTimeout(() => {
+          liqEl.style.height = '40%';
+        }, 800);
+        setTimeout(() => {
+          chemEl.classList.remove('pouring-swipe');
+          streamEl.classList.remove('stream-active');
+          checkMixEnabled();
+        }, 1600);
+      } else {
+        chemEl.classList.add('pouring-cloro');
+        setTimeout(() => streamEl.classList.add('stream-active'), 400);
+        setTimeout(() => {
+          if (chemicalsAdded['swipe']) {
+            liqEl.style.bottom = '40%';
+          } else {
+            liqEl.style.bottom = '0%';
+          }
+          liqEl.style.height = '40%';
+        }, 800);
+        setTimeout(() => {
+          chemEl.classList.remove('pouring-cloro');
+          streamEl.classList.remove('stream-active');
+          checkMixEnabled();
+        }, 1600);
+      }
+    }
+
+    function checkMixEnabled() {
+      if (chemicalsAdded.swipe && chemicalsAdded.cloro) {
+        document.getElementById('btn-mix').disabled = false;
+      }
+    }
+
+    function triggerMixReaction() {
+      const flask = document.getElementById('lab-flask');
+      const gas = document.getElementById('gas-cloud-anim');
+      const alertBox = document.getElementById('reaction-alert');
+      const btnMix = document.getElementById('btn-mix');
+      const btnReset = document.getElementById('btn-reset-mix');
+      
+      if (btnMix) btnMix.disabled = true;
+      if (flask) flask.classList.add('shake');
+      
+      const liqSwipe = document.getElementById('liq-swipe');
+      const liqCloro = document.getElementById('liq-cloro');
+      if (liqSwipe && liqCloro) {
+        setTimeout(() => {
+          liqSwipe.style.bottom = '0';
+          liqSwipe.style.height = '80%';
+          liqSwipe.style.background = 'rgba(196, 229, 56, 0.7)'; // cambia a un verde efervescente tóxico
+          liqCloro.style.height = '0%';
+        }, 300);
+      }
+      
+      setTimeout(() => {
+        if (gas) gas.classList.add('gas-active');
+      }, 500);
+      
+      setTimeout(() => {
+        if (flask) flask.classList.remove('shake');
+        if (alertBox) alertBox.classList.add('show-alert');
+        if (btnMix) btnMix.classList.add('hide-element');
+        if (btnReset) btnReset.classList.remove('hide-element');
+      }, 1000);
+    }
+
+    function resetMixer() {
+      chemicalsAdded = { swipe: false, cloro: false };
+      
+      const btnMix = document.getElementById('btn-mix');
+      const btnReset = document.getElementById('btn-reset-mix');
+      if (btnMix) {
+        btnMix.disabled = true;
+        btnMix.classList.remove('hide-element');
+      }
+      if (btnReset) btnReset.classList.add('hide-element');
+      
+      ['swipe', 'cloro'].forEach(type => {
+        const chem = document.getElementById('chem-' + type);
+        if (chem) chem.classList.remove('added');
+        const liq = document.getElementById('liq-' + type);
+        if (liq) {
+          liq.style.height = '0%';
+          liq.style.bottom = '0';
+        }
+      });
+      
+      const liqSwipe = document.getElementById('liq-swipe');
+      if (liqSwipe) {
+        liqSwipe.style.background = 'rgba(52, 152, 219, 0.65)';
+      }
+      
+      const gas = document.getElementById('gas-cloud-anim');
+      if (gas) gas.classList.remove('gas-active');
+      
+      const alertBox = document.getElementById('reaction-alert');
+      if (alertBox) alertBox.classList.remove('show-alert');
+    }
+
+    // --- Cronómetro Digital y Barra de Progreso ---
     let intervalId = null;
     
     function iniciarCronometro() {
       const display = document.getElementById('display-cronometro');
       const btn = document.getElementById('btn-iniciar');
+      const progressBar = document.getElementById('timer-progress-bar');
       
       if (btn) btn.classList.add('hide-element');
       if (display) display.classList.remove('timer-danger');
+      if (progressBar) {
+        progressBar.style.width = '100%';
+        progressBar.style.backgroundColor = 'var(--color-neon-green)';
+      }
       
       let tiempoRestante = 120;
+      const tiempoTotal = 120;
       
       if (intervalId) clearInterval(intervalId);
       
@@ -1571,6 +2523,16 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
         const mm = minutos < 10 ? '0' + minutos : minutos;
         const ss = segundos < 10 ? '0' + segundos : segundos;
         display.textContent = `${mm}:${ss}`;
+        
+        if (progressBar) {
+          const pct = (tiempoRestante / tiempoTotal) * 100;
+          progressBar.style.width = `${pct}%`;
+          if (pct <= 20) {
+            progressBar.style.backgroundColor = 'var(--color-danger)';
+          } else if (pct <= 50) {
+            progressBar.style.backgroundColor = 'var(--color-warning)';
+          }
+        }
       }
       
       actualizarDisplay();
@@ -1586,43 +2548,95 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
       }, 1000);
     }
 
+    // --- Confetti Canvas Drawer (Sin dependencias externas) ---
+    function triggerConfetti() {
+      const canvas = document.getElementById('confetti-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      
+      canvas.width = canvas.parentElement.offsetWidth;
+      canvas.height = canvas.parentElement.offsetHeight;
+      
+      const colors = ['#f1c40f', '#e67e22', '#2ecc71', '#3498db', '#e74c3c', '#9b59b6'];
+      const particles = [];
+      
+      for (let i = 0; i < 120; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          r: Math.random() * 5 + 3,
+          d: Math.random() * canvas.height,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          tilt: Math.random() * 8 - 4,
+          tiltAngleIncremental: Math.random() * 0.05 + 0.02,
+          tiltAngle: 0
+        });
+      }
+      
+      let frames = 0;
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+          ctx.beginPath();
+          ctx.lineWidth = p.r;
+          ctx.strokeStyle = p.color;
+          ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+          ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
+          ctx.stroke();
+        });
+        update();
+      }
+      
+      function update() {
+        frames++;
+        let remaining = 0;
+        particles.forEach((p) => {
+          p.tiltAngle += p.tiltAngleIncremental;
+          p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
+          p.tilt = Math.sin(p.tiltAngle - frames / 3) * 12;
+          if (p.y <= canvas.height) {
+            remaining++;
+          }
+        });
+        
+        if (remaining > 0) {
+          draw();
+          requestAnimationFrame(update);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+      draw();
+    }
+
     // --- Quiz Interactivo: Dinámica SWIPE ---
     let opcionSeleccionada = null;
     const RESPUESTA_CORRECTA = 'b';
 
     function seleccionarOpcion(opcion) {
-      // Si ya se verificó, no permitir cambio
       if (document.getElementById('quiz-feedback').classList.contains('show')) return;
-
       opcionSeleccionada = opcion;
-
-      // Quitar selección visual de todas
       ['a', 'b', 'c'].forEach(o => {
         const el = document.getElementById('opcion-' + o);
-        if (el) el.classList.remove('selected');
+        if (el) {
+          el.classList.remove('selected');
+          el.classList.remove('shake-incorrect');
+        }
       });
-
-      // Marcar la elegida
       const elegida = document.getElementById('opcion-' + opcion);
       if (elegida) elegida.classList.add('selected');
-
-      // Habilitar botón verificar
       const btn = document.getElementById('btn-verificar');
       if (btn) btn.disabled = false;
     }
 
     function verificarRespuesta() {
       if (!opcionSeleccionada) return;
-
       const feedback = document.getElementById('quiz-feedback');
       const btnV = document.getElementById('btn-verificar');
-
-      // Deshabilitar botón
       if (btnV) btnV.disabled = true;
-
+      
       const esCorrecta = opcionSeleccionada === RESPUESTA_CORRECTA;
-
-      // Aplicar colores a todas las opciones
+      
       ['a', 'b', 'c'].forEach(o => {
         const el = document.getElementById('opcion-' + o);
         if (!el) return;
@@ -1631,16 +2645,17 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
           el.classList.add('correct');
         } else if (o === opcionSeleccionada && !esCorrecta) {
           el.classList.add('incorrect');
+          el.classList.add('shake-incorrect'); // Sacudir opción errónea
         } else {
           el.classList.add('dimmed');
         }
       });
 
-      // Mostrar feedback
       feedback.classList.remove('correct-fb', 'incorrect-fb');
       if (esCorrecta) {
         feedback.innerHTML = '<i class="fa-solid fa-circle-check"></i><span>¡Correcto! Sección 6 HDS: absorber con material no combustible (arena, tierra, diatomeas). Nunca al drenaje — el producto es tóxico para organismos acuáticos.</span>';
         feedback.classList.add('correct-fb', 'show');
+        triggerConfetti(); // Confeti!
       } else {
         feedback.innerHTML = '<i class="fa-solid fa-circle-xmark"></i><span>Incorrecto. La respuesta es <strong>b)</strong>. La Sección 6 HDS indica: contener con material absorbente no combustible. No permitir contacto con suelo ni canales de agua.</span>';
         feedback.classList.add('incorrect-fb', 'show');
@@ -1658,10 +2673,23 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
       if (fb) { fb.classList.remove('show', 'correct-fb', 'incorrect-fb'); fb.innerHTML = ''; }
       const btn = document.getElementById('btn-verificar');
       if (btn) btn.disabled = true;
+      
       const display = document.getElementById('display-cronometro');
       if (display) display.classList.remove('timer-danger');
       const btnI = document.getElementById('btn-iniciar');
       if (btnI) btnI.classList.remove('hide-element');
+      
+      const progressBar = document.getElementById('timer-progress-bar');
+      if (progressBar) {
+        progressBar.style.width = '100%';
+        progressBar.style.backgroundColor = 'var(--color-neon-green)';
+      }
+      
+      // Cerrar tooltips abiertos de hotspots
+      document.querySelectorAll('.hotspot').forEach(el => el.classList.remove('active-tooltip'));
+      
+      // Reiniciar mezclador de laboratorio
+      resetMixer();
     });
   </script>
 </body>

@@ -847,7 +847,15 @@
       width: 180px;
     }
 
-    /* Slide 4b GHS: forzar top:0 via JS (ver Reveal.on slidechanged más abajo) */
+    /* Slide 4b GHS: forzar height y top para que center:true no desplace contenido */
+    .reveal .slides section.ghs-section {
+      height: 720px !important;
+      min-height: 720px !important;
+      top: 0 !important;
+      box-sizing: border-box !important;
+      padding: 30px 30px 20px 30px !important;
+      overflow: hidden !important;
+    }
 
     /* Flip Cards GHS (Nueva Diapositiva 4b) */
     .ghs-grid {
@@ -855,14 +863,14 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 18px;
       width: 100%;
-      max-width: 1080px;
-      margin: 50px auto 0 auto;
+      max-width: 1100px;
+      margin: 20px auto 0 auto;
       box-sizing: border-box;
     }
     .ghs-flip-card {
       background: transparent;
       perspective: 1000px;
-      height: 230px;
+      height: 220px;
       cursor: pointer;
     }
     .ghs-card-inner {
@@ -1868,8 +1876,7 @@
 
       <!-- Diapositiva 4b: Pictogramas SGA -->
       <section class="ghs-section" data-background-gradient="radial-gradient(circle, #0e1726 0%, #050810 100%)">
-        <!-- Sin flex/r-vstack: flujo de bloque normal garantiza que título quede ARRIBA de las tarjetas -->
-        <div style="display:block; width:100%; text-align:center; margin-bottom:30px; padding-top:30px;">
+        <div style="text-align:center; margin-bottom:16px;">
           <span style="font-size:26px; font-weight:800; color:#fff; font-family:'Outfit',sans-serif; line-height:1.3; display:block;">Pictogramas SGA en la NOM-018</span>
           <span style="font-size:15px; color:#a4b0be; display:block; margin-top:6px;">Haz clic en cada pictograma para descubrir su significado y su relación con SWIPE.</span>
         </div>
@@ -2275,17 +2282,18 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
       plugins: [ RevealNotes ]
     });
 
-    // Fix diapositiva 4b (GHS): evitar que center:true mueva el slide mal
-    // Reveal.js centra las secciones ajustando 'top' via JS; lo neutralizamos en el slide GHS
+    // Fix diapositiva 4b (GHS): garantizar top:0 incluso despues del layout de Reveal.js
     function fixGHSSlide() {
-      const ghsSection = document.querySelector('.reveal .slides section.ghs-section');
-      if (ghsSection) {
-        ghsSection.style.top = '0px';
-        ghsSection.style.paddingTop = '20px';
-      }
+      setTimeout(() => {
+        const ghsSection = document.querySelector('.reveal .slides section.ghs-section');
+        if (ghsSection) {
+          ghsSection.style.setProperty('top', '0px', 'important');
+        }
+      }, 0);
     }
     Reveal.on('ready', fixGHSSlide);
     Reveal.on('slidechanged', fixGHSSlide);
+    window.addEventListener('resize', fixGHSSlide);
 
     // --- Inicialización General al Cargar la Página ---
     window.addEventListener('DOMContentLoaded', () => {

@@ -1897,91 +1897,93 @@
       </section>
 
       <!-- Diapositiva 4b: Pictogramas SGA -->
-      <section class="ghs-section" data-background-gradient="radial-gradient(circle, #0e1726 0%, #050810 100%)"
-        style="display:flex !important; flex-direction:column !important; align-items:center !important; justify-content:flex-start !important; padding:20px 24px 12px !important; box-sizing:border-box !important; overflow:hidden !important;">
-        <h2 style="font-size:1.4em; margin:0 0 6px 0; font-family:'Outfit',sans-serif; font-weight:800; color:#fff;">Pictogramas SGA en la NOM-018</h2>
-        <p style="font-size:0.78em; color:#a4b0be; margin:0 0 16px 0;">Haz clic en cada pictograma para descubrir su significado y su relación con SWIPE.</p>
-        
-        <div class="ghs-grid">
-          <!-- Tarjeta 1: Irritación (Exclamación) -->
-          <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
-            <div class="ghs-card-inner">
-              <div class="ghs-card-front">
-                <div class="ghs-diamond">
-                  <div class="ghs-icon-wrapper">
-                    <i class="fa-solid fa-exclamation"></i>
-                  </div>
-                </div>
-                <h3>Exclamación</h3>
-              </div>
-              <div class="ghs-card-back">
-                <h4>Signo de Exclamación</h4>
-                <p>Indica peligros a la salud como irritación cutánea u ocular, sensibilización dérmica o toxicidad menor.</p>
-                <div class="swipe-relation">
-                  <strong>En SWIPE:</strong> Provoca leve irritación ocular por contacto y ligera irritación dérmica por desengrase. ¡Símbolo oficial en su etiqueta!
-                </div>
-              </div>
-            </div>
-          </div>
+      <section data-background-gradient="radial-gradient(circle, #0e1726 0%, #050810 100%)">
+        <div class="r-vstack" style="justify-content:flex-start; height:100%; padding-top:10px; gap:0;">
+          <!-- Titulo como div para evitar font-size 2.11em de Reveal h2 -->
+          <div style="font-size:1.3em; font-weight:800; color:#fff; font-family:'Outfit',sans-serif; margin:0 0 4px 0; text-align:center; line-height:1.2;">Pictogramas SGA en la NOM-018</div>
+          <div style="font-size:0.55em; color:#a4b0be; margin:0 0 14px 0; text-align:center;">Haz clic en cada pictograma para descubrir su significado y su relación con SWIPE.</div>
           
-          <!-- Tarjeta 2: Corrosión -->
-          <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
-            <div class="ghs-card-inner">
-              <div class="ghs-card-front">
-                <div class="ghs-diamond">
-                  <div class="ghs-icon-wrapper">
-                    <i class="fa-solid fa-fill-drip"></i>
+          <div class="ghs-grid">
+            <!-- Tarjeta 1: Irritación (Exclamación) -->
+            <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
+              <div class="ghs-card-inner">
+                <div class="ghs-card-front">
+                  <div class="ghs-diamond">
+                    <div class="ghs-icon-wrapper">
+                      <i class="fa-solid fa-exclamation"></i>
+                    </div>
                   </div>
+                  <h3>Exclamación</h3>
                 </div>
-                <h3>Corrosión</h3>
-              </div>
-              <div class="ghs-card-back">
-                <h4>Corrosión Cutánea</h4>
-                <p>Indica sustancias capaces de destruir metales, causar quemaduras graves en la piel y lesiones oculares irreversibles.</p>
-                <div class="swipe-relation">
-                  <strong>En SWIPE:</strong> pH de 12-14. Aunque diluido es seguro, en estado puro concentrado requiere guantes y gafas protectoras.
+                <div class="ghs-card-back">
+                  <h4>Signo de Exclamación</h4>
+                  <p>Indica peligros a la salud como irritación cutánea u ocular, sensibilización dérmica o toxicidad menor.</p>
+                  <div class="swipe-relation">
+                    <strong>En SWIPE:</strong> Provoca leve irritación ocular por contacto y ligera irritación dérmica por desengrase. ¡Símbolo oficial en su etiqueta!
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- Tarjeta 3: Medio Ambiente -->
-          <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
-            <div class="ghs-card-inner">
-              <div class="ghs-card-front">
-                <div class="ghs-diamond">
-                  <div class="ghs-icon-wrapper">
-                    <i class="fa-solid fa-fish"></i>
+            
+            <!-- Tarjeta 2: Corrosión -->
+            <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
+              <div class="ghs-card-inner">
+                <div class="ghs-card-front">
+                  <div class="ghs-diamond">
+                    <div class="ghs-icon-wrapper">
+                      <i class="fa-solid fa-fill-drip"></i>
+                    </div>
                   </div>
+                  <h3>Corrosión</h3>
                 </div>
-                <h3>Medio Ambiente</h3>
-              </div>
-              <div class="ghs-card-back">
-                <h4>Peligro Acuático</h4>
-                <p>Indica sustancias de toxicidad aguda o crónica para organismos acuáticos que dañan el ecosistema.</p>
-                <div class="swipe-relation">
-                  <strong>En SWIPE:</strong> Tóxico para fauna acuática (Sección 12 HDS). Prohibido desechar concentrado directamente en drenajes o ríos.
+                <div class="ghs-card-back">
+                  <h4>Corrosión Cutánea</h4>
+                  <p>Indica sustancias capaces de destruir metales, causar quemaduras graves en la piel y lesiones oculares irreversibles.</p>
+                  <div class="swipe-relation">
+                    <strong>En SWIPE:</strong> pH de 12-14. Aunque diluido es seguro, en estado puro concentrado requiere guantes y gafas protectoras.
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Tarjeta 4: Llama (Contraste) -->
-          <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
-            <div class="ghs-card-inner">
-              <div class="ghs-card-front">
-                <div class="ghs-diamond">
-                  <div class="ghs-icon-wrapper">
-                    <i class="fa-solid fa-fire"></i>
+            <!-- Tarjeta 3: Medio Ambiente -->
+            <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
+              <div class="ghs-card-inner">
+                <div class="ghs-card-front">
+                  <div class="ghs-diamond">
+                    <div class="ghs-icon-wrapper">
+                      <i class="fa-solid fa-fish"></i>
+                    </div>
+                  </div>
+                  <h3>Medio Ambiente</h3>
+                </div>
+                <div class="ghs-card-back">
+                  <h4>Peligro Acuático</h4>
+                  <p>Indica sustancias de toxicidad aguda o crónica para organismos acuáticos que dañan el ecosistema.</p>
+                  <div class="swipe-relation">
+                    <strong>En SWIPE:</strong> Tóxico para fauna acuática (Sección 12 HDS). Prohibido desechar concentrado directamente en drenajes o ríos.
                   </div>
                 </div>
-                <h3>Inflamable</h3>
               </div>
-              <div class="ghs-card-back">
-                <h4>Llama / Combustión</h4>
-                <p>Identifica gases, aerosoles, líquidos y sólidos inflamables que arden con facilidad frente a chispas o calor.</p>
-                <div class="swipe-relation">
-                  <strong>En SWIPE:</strong> ¡No inflamable! Es base agua y no arde, lo que reduce el riesgo de incendio en áreas calientes del taller.
+            </div>
+
+            <!-- Tarjeta 4: Llama (Contraste) -->
+            <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
+              <div class="ghs-card-inner">
+                <div class="ghs-card-front">
+                  <div class="ghs-diamond">
+                    <div class="ghs-icon-wrapper">
+                      <i class="fa-solid fa-fire"></i>
+                    </div>
+                  </div>
+                  <h3>Inflamable</h3>
+                </div>
+                <div class="ghs-card-back">
+                  <h4>Llama / Combustión</h4>
+                  <p>Identifica gases, aerosoles, líquidos y sólidos inflamables que arden con facilidad frente a chispas o calor.</p>
+                  <div class="swipe-relation">
+                    <strong>En SWIPE:</strong> ¡No inflamable! Es base agua y no arde, lo que reduce el riesgo de incendio en áreas calientes del taller.
+                  </div>
                 </div>
               </div>
             </div>
@@ -1990,7 +1992,9 @@
       </section>
 
 
+
       <!-- Diapositiva 5: Palabras de Advertencia -->
+
       <section data-background-gradient="radial-gradient(circle, #1c1f24 0%, #0a0d10 100%)">
         <h2 class="slide-title-m10">Palabras de Advertencia</h2>
         <p class="slide-desc-m18">Indicadores visuales rápidos sobre el nivel de peligro de la sustancia.</p>

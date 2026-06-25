@@ -2187,6 +2187,10 @@
                 <button id="btn-verificar" class="btn-verificar" onclick="verificarRespuesta()" disabled>
                   <i class="fa-solid fa-circle-check"></i> Verificar Respuesta
                 </button>
+
+                <button id="btn-reiniciar-taller" class="btn-primary hide-element" onclick="reiniciarTaller()" style="margin-top: 8px; border-radius: 6px; padding: 7px 0; font-size: 0.72em;">
+                  <i class="fa-solid fa-arrow-rotate-left"></i> Reiniciar Intento
+                </button>
  
                 <div id="quiz-feedback" class="quiz-feedback"></div>
  
@@ -2652,9 +2656,24 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
 
     function verificarRespuesta() {
       if (!opcionSeleccionada) return;
+      
+      // Detener el cronómetro si está activo
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+      
       const feedback = document.getElementById('quiz-feedback');
       const btnV = document.getElementById('btn-verificar');
-      if (btnV) btnV.disabled = true;
+      if (btnV) {
+        btnV.disabled = true;
+        btnV.classList.add('hide-element');
+      }
+      
+      const btnR = document.getElementById('btn-reiniciar-taller');
+      if (btnR) {
+        btnR.classList.remove('hide-element');
+      }
       
       const esCorrecta = opcionSeleccionada === RESPUESTA_CORRECTA;
       
@@ -2683,28 +2702,57 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
       }
     }
 
-    // Reiniciar quiz al regresar a la diapositiva
-    Reveal.on('slidechanged', () => {
+    // Función para reiniciar el intento del taller
+    function reiniciarTaller() {
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
       opcionSeleccionada = null;
+      
       ['a', 'b', 'c'].forEach(o => {
         const el = document.getElementById('opcion-' + o);
         if (el) el.className = 'quiz-option';
       });
+      
       const fb = document.getElementById('quiz-feedback');
-      if (fb) { fb.classList.remove('show', 'correct-fb', 'incorrect-fb'); fb.innerHTML = ''; }
-      const btn = document.getElementById('btn-verificar');
-      if (btn) btn.disabled = true;
+      if (fb) {
+        fb.classList.remove('show', 'correct-fb', 'incorrect-fb');
+        fb.innerHTML = '';
+      }
+      
+      const btnV = document.getElementById('btn-verificar');
+      if (btnV) {
+        btnV.disabled = true;
+        btnV.classList.remove('hide-element');
+      }
+      
+      const btnR = document.getElementById('btn-reiniciar-taller');
+      if (btnR) {
+        btnR.classList.add('hide-element');
+      }
       
       const display = document.getElementById('display-cronometro');
-      if (display) display.classList.remove('timer-danger');
+      if (display) {
+        display.classList.remove('timer-danger');
+        display.textContent = '02:00';
+      }
+      
       const btnI = document.getElementById('btn-iniciar');
-      if (btnI) btnI.classList.remove('hide-element');
+      if (btnI) {
+        btnI.classList.remove('hide-element');
+      }
       
       const progressBar = document.getElementById('timer-progress-bar');
       if (progressBar) {
         progressBar.style.width = '100%';
         progressBar.style.backgroundColor = 'var(--color-neon-green)';
       }
+    }
+
+    // Reiniciar quiz al regresar a la diapositiva
+    Reveal.on('slidechanged', () => {
+      reiniciarTaller();
       
       // Cerrar tooltips abiertos de hotspots
       document.querySelectorAll('.hotspot').forEach(el => el.classList.remove('active-tooltip'));

@@ -497,15 +497,232 @@
     }
 
     /* Diapositiva 9: Reglas Finales */
-    .rules-final-container { display: flex; flex-direction: column; gap: 12px; max-width: 820px; margin: 0 auto; text-align: left; }
-    .rules-final-item {
+    .rules-final-container {
       display: flex;
+      flex-direction: row;
+      gap: 20px;
+      max-width: 1050px;
+      margin: 30px auto 0 auto;
+      align-items: stretch;
+      justify-content: center;
+    }
+    .rules-final-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
       gap: 14px;
       background: var(--color-surface);
-}
-    .rules-final-num { font-family: var(--font-main); font-size: 1.4em; font-weight: 800; color: var(--color-success); width: 40px; height: 40px; border-radius: 50%; background: rgba(46, 204, 113, 0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .rules-final-content h4 { margin: 0 0 3px 0 !important; font-size: 1em !important; color: #fff !important; }
-    .rules-final-content p { margin: 0 !important; font-size: 0.75em; color: var(--color-text-muted); line-height: 1.35; }
+      border-radius: 12px;
+      padding: 24px 20px;
+      border: 1.5px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .rules-final-item:hover {
+      transform: translateY(-5px);
+      border-color: rgba(52, 152, 219, 0.2);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+    }
+    .rules-final-num {
+      font-family: var(--font-main);
+      font-size: 1.4em;
+      font-weight: 800;
+      color: var(--color-success);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(46, 204, 113, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .rules-final-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
+    .rules-final-content h4 {
+      margin: 0 0 8px 0 !important;
+      font-size: 1.05em !important;
+      color: #fff !important;
+      text-align: center;
+    }
+    .rules-final-content p {
+      margin: 0 !important;
+      font-size: 0.75em;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    /* Contenedor e iconos para las animaciones de las reglas */
+    .rule-anim-container {
+      width: 100%;
+      height: 90px;
+      margin-top: 15px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+    .anim-scan .bottle-base {
+      font-size: 2.5em;
+      color: var(--color-primary);
+      opacity: 0.8;
+      z-index: 1;
+    }
+    .anim-scan .bottle-glow {
+      position: absolute;
+      width: 25px;
+      height: 40px;
+      background: var(--color-primary);
+      filter: blur(15px);
+      opacity: 0.35;
+      animation: glow-pulse 2s ease-in-out infinite;
+    }
+    .anim-scan .magnifier-glass {
+      font-size: 1.4em;
+      color: var(--color-warning);
+      position: absolute;
+      z-index: 3;
+      animation: scan-move 4s ease-in-out infinite;
+    }
+    .anim-scan .scan-laser {
+      position: absolute;
+      width: 40px;
+      height: 2px;
+      background: var(--color-primary);
+      box-shadow: 0 0 8px var(--color-primary);
+      z-index: 2;
+      animation: laser-move 4s ease-in-out infinite;
+    }
+
+    .anim-epp .goggle-icon {
+      font-size: 2.2em;
+      color: var(--color-success);
+      z-index: 2;
+      animation: float-goggle 3s ease-in-out infinite;
+    }
+    .anim-epp .glove-left, .anim-epp .glove-right {
+      font-size: 1.5em;
+      color: var(--color-success);
+      opacity: 0.6;
+      position: absolute;
+      z-index: 1;
+    }
+    .anim-epp .glove-left {
+      left: 20%;
+      transform: rotate(-25deg);
+      animation: float-glove-l 3s ease-in-out infinite;
+    }
+    .anim-epp .glove-right {
+      right: 20%;
+      transform: rotate(25deg) scaleX(-1);
+      animation: float-glove-r 3s ease-in-out infinite;
+    }
+    .anim-epp .epp-shield-glow {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: var(--color-success);
+      filter: blur(20px);
+      opacity: 0.2;
+      animation: glow-pulse 3s ease-in-out infinite;
+    }
+
+    .anim-no-mix .flask-pour-l {
+      font-size: 1.5em;
+      color: var(--color-primary);
+      position: absolute;
+      left: 18%;
+      top: 28%;
+      transform: rotate(45deg);
+      animation: pour-flask-l 2.5s ease-in-out infinite;
+    }
+    .anim-no-mix .flask-pour-r {
+      font-size: 1.5em;
+      color: #e67e22;
+      position: absolute;
+      right: 18%;
+      top: 28%;
+      transform: rotate(-45deg);
+      animation: pour-flask-r 2.5s ease-in-out infinite;
+    }
+    .anim-no-mix .warning-exclam {
+      font-size: 1.8em;
+      color: var(--color-danger);
+      z-index: 3;
+      animation: exclam-pulse 1.2s ease-in-out infinite;
+    }
+    .anim-no-mix .reaction-smoke {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, rgba(231, 76, 60, 0.4) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      z-index: 2;
+      animation: smoke-rise 2.5s ease-in-out infinite;
+    }
+    .anim-no-mix .danger-cloud-glow {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: var(--color-danger);
+      filter: blur(15px);
+      opacity: 0.25;
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% { opacity: 0.25; transform: scale(0.9); }
+      50% { opacity: 0.5; transform: scale(1.1); }
+    }
+    @keyframes scan-move {
+      0%, 100% { transform: translate(-15px, -10px) rotate(0deg); }
+      50% { transform: translate(15px, 10px) rotate(15deg); }
+    }
+    @keyframes laser-move {
+      0%, 100% { transform: translateY(-12px); opacity: 0.2; }
+      50% { transform: translateY(12px); opacity: 0.9; }
+    }
+    @keyframes float-goggle {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes float-glove-l {
+      0%, 100% { transform: translateY(0px) rotate(-25deg); }
+      50% { transform: translateY(4px) rotate(-20deg); }
+    }
+    @keyframes float-glove-r {
+      0%, 100% { transform: translateY(0px) rotate(25deg) scaleX(-1); }
+      50% { transform: translateY(4px) rotate(20deg) scaleX(-1); }
+    }
+    @keyframes pour-flask-l {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(8px, 4px) rotate(45deg); }
+    }
+    @keyframes pour-flask-r {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(-8px, 4px) rotate(-45deg); }
+    }
+    @keyframes exclam-pulse {
+      0%, 100% { transform: scale(0.9); filter: drop-shadow(0 0 2px rgba(231,76,60,0.3)); }
+      50% { transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(231,76,60,0.8)); }
+    }
+    @keyframes smoke-rise {
+      0% { transform: translateY(20px) scale(0.5); opacity: 0; }
+      30% { opacity: 0.7; }
+      80% { transform: translateY(-10px) scale(2); opacity: 0; }
+      100% { opacity: 0; }
+    }
 
     /* Flip Cards GHS Mobile */
     @media (max-width: 768px) {
@@ -1694,20 +1911,33 @@
       
       /* Slide 9: Rules final */
       .rules-final-container {
-        gap: 10px !important;
+        flex-direction: column !important;
+        gap: 12px !important;
         width: 100% !important;
       }
       .rules-final-item {
-        padding: 10px 12px !important;
-        gap: 10px !important;
+        padding: 15px 12px !important;
+        gap: 8px !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
       }
       .rules-final-num {
         width: 32px !important;
         height: 32px !important;
         font-size: 1.1em !important;
       }
+      .rules-final-content h4 {
+        font-size: 0.95em !important;
+        text-align: center !important;
+      }
       .rules-final-content p {
         font-size: 0.82em !important;
+        text-align: center !important;
+      }
+      .rule-anim-container {
+        height: 75px !important;
+        margin-top: 10px !important;
       }
     }
   </style>
@@ -2217,7 +2447,13 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
             </div>
             <div class="rules-final-content">
               <h4>Identifica Antes de Tocar</h4>
-              <p>Lee la etiqueta and la HDS antes de usar cualquier químico. SWIPE tiene pH 12–14: alcalino, no inflamable, pero incompatible con el cloro. Conocer esto previene accidentes.</p>
+              <p>Lee la etiqueta y la HDS antes de usar cualquier químico. SWIPE tiene pH 12–14: alcalino, no inflamable, pero incompatible con el cloro. Conocer esto previene accidentes.</p>
+            </div>
+            <div class="rule-anim-container anim-scan">
+              <div class="bottle-glow"></div>
+              <i class="fa-solid fa-bottle-droplet bottle-base"></i>
+              <div class="scan-laser"></div>
+              <i class="fa-solid fa-magnifying-glass magnifier-glass"></i>
             </div>
           </div>
           
@@ -2229,6 +2465,12 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
               <h4>Usa el EPP Correcto</h4>
               <p>La Sección 8 de la HDS de SWIPE es clara: gafas protectoras siempre y guantes para contacto prolongado. El EPP correcto marca la diferencia entre un susto y una lesión.</p>
             </div>
+            <div class="rule-anim-container anim-epp">
+              <div class="epp-shield-glow"></div>
+              <i class="fa-solid fa-glasses goggle-icon"></i>
+              <i class="fa-solid fa-mitten glove-left"></i>
+              <i class="fa-solid fa-mitten glove-right"></i>
+            </div>
           </div>
           
           <div class="rules-final-item fragment">
@@ -2238,6 +2480,13 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
             <div class="rules-final-content">
               <h4>No Mezcles Sin Consultar la HDS</h4>
               <p>SWIPE + hipoclorito de sodio = reacción peligrosa (Sección 10 HDS). Antes de combinar cualquier producto de limpieza, verifica la compatibilidad en la HDS. Siempre.</p>
+            </div>
+            <div class="rule-anim-container anim-no-mix">
+              <div class="danger-cloud-glow"></div>
+              <i class="fa-solid fa-flask flask-pour-l"></i>
+              <i class="fa-solid fa-flask flask-pour-r"></i>
+              <div class="reaction-smoke"></div>
+              <i class="fa-solid fa-triangle-exclamation warning-exclam"></i>
             </div>
           </div>
         </div>

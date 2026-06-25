@@ -527,14 +527,10 @@
       .ghs-card-front h3 {
         font-size: 0.85em !important;
       }
-      .ghs-diamond {
-        width: 42px !important;
-        height: 42px !important;
-        border-width: 2px !important;
+      .ghs-img-pictogram {
+        width: 60px !important;
+        height: 60px !important;
         margin-bottom: 8px !important;
-      }
-      .ghs-diamond i {
-        font-size: 1.2em !important;
       }
       .ghs-card-back {
         padding: 8px !important;
@@ -953,22 +949,16 @@
       color: var(--color-warning);
       font-size: 12px !important;
     }
-    .ghs-diamond {
-      width: 60px;
-      height: 60px;
-      border: 3px solid #e74c3c;
-      background: white;
-      transform: rotate(45deg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 15px rgba(231, 76, 60, 0.35);
-      margin-bottom: 20px;
+    .ghs-img-pictogram {
+      width: 90px;
+      height: 90px;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 0 12px rgba(231, 76, 60, 0.25));
+      transition: transform 0.3s, filter 0.3s;
     }
-    .ghs-diamond i {
-      transform: rotate(-45deg);
-      color: #111;
-      font-size: 1.8em;
+    .ghs-flip-card:hover .ghs-img-pictogram {
+      transform: scale(1.06);
+      filter: drop-shadow(0 0 16px rgba(231, 76, 60, 0.4));
     }
 
     /* Hotspots en Diapositiva 8 */
@@ -1894,11 +1884,7 @@
           <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
             <div class="ghs-card-inner">
               <div class="ghs-card-front">
-                <div class="ghs-diamond">
-                  <div class="ghs-icon-wrapper">
-                    <i class="fa-solid fa-exclamation"></i>
-                  </div>
-                </div>
+                <img src="ghs-exclam.svg" class="ghs-img-pictogram" alt="Signo de Exclamación">
                 <h3>Exclamación</h3>
               </div>
               <div class="ghs-card-back">
@@ -1915,11 +1901,7 @@
           <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
             <div class="ghs-card-inner">
               <div class="ghs-card-front">
-                <div class="ghs-diamond">
-                  <div class="ghs-icon-wrapper">
-                    <i class="fa-solid fa-fill-drip"></i>
-                  </div>
-                </div>
+                <img src="ghs-acid.svg" class="ghs-img-pictogram" alt="Corrosión">
                 <h3>Corrosión</h3>
               </div>
               <div class="ghs-card-back">
@@ -1936,11 +1918,7 @@
           <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
             <div class="ghs-card-inner">
               <div class="ghs-card-front">
-                <div class="ghs-diamond">
-                  <div class="ghs-icon-wrapper">
-                    <i class="fa-solid fa-fish"></i>
-                  </div>
-                </div>
+                <img src="ghs-pollu.svg" class="ghs-img-pictogram" alt="Medio Ambiente">
                 <h3>Medio Ambiente</h3>
               </div>
               <div class="ghs-card-back">
@@ -1957,11 +1935,7 @@
           <div class="ghs-flip-card" onclick="this.classList.toggle('flipped')">
             <div class="ghs-card-inner">
               <div class="ghs-card-front">
-                <div class="ghs-diamond">
-                  <div class="ghs-icon-wrapper">
-                    <i class="fa-solid fa-fire"></i>
-                  </div>
-                </div>
+                <img src="ghs-flamme.svg" class="ghs-img-pictogram" alt="Inflamable">
                 <h3>Inflamable</h3>
               </div>
               <div class="ghs-card-back">

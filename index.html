@@ -2415,6 +2415,77 @@
         font-size: 1.5em !important;
       }
     }
+
+    /* Estilos del header del juego */
+    .game-title-block {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .game-main-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #FFCC00;
+      font-family: 'Outfit', sans-serif;
+      display: block;
+    }
+    .game-sub-title {
+      font-size: 15px;
+      color: #B3B3B3;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* Adaptación para pantallas de laptops con menor altura */
+    @media (max-height: 800px) {
+      .game-title-block {
+        margin-bottom: 6px !important;
+      }
+      .game-main-title {
+        font-size: 20px !important;
+      }
+      .game-sub-title {
+        font-size: 12px !important;
+      }
+      .game-container {
+        margin-top: 5px !important;
+        gap: 15px !important;
+      }
+      .drag-item {
+        padding: 6px 10px !important;
+        gap: 8px !important;
+        font-size: 0.72em !important;
+      }
+      .game-img {
+        width: 36px !important;
+        height: 36px !important;
+      }
+      .drop-zone {
+        min-height: 52px !important;
+        padding: 5px 10px !important;
+        gap: 10px !important;
+      }
+      .drop-zone-text strong {
+        font-size: 0.75em !important;
+      }
+      .drop-zone-text p {
+        font-size: 0.58em !important;
+        line-height: 1.2 !important;
+        margin-top: 1px !important;
+      }
+      .drop-slot {
+        width: 38px !important;
+        height: 38px !important;
+      }
+      .drop-zone.matched .game-img {
+        width: 28px !important;
+        height: 28px !important;
+      }
+      .game-feedback-box {
+        margin-top: 8px !important;
+        padding: 5px 12px !important;
+        font-size: 0.72em !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2679,9 +2750,9 @@
 
       <!-- Diapositiva 4c: Minijuego Drag & Drop SGA -->
       <section data-background-gradient="radial-gradient(circle, #242427 0%, #111112 100%)">
-        <div style="text-align:center; margin-bottom:12px;">
-          <span style="font-size:26px; font-weight:800; color:#FFCC00; font-family:'Outfit',sans-serif; display:block;">Minijuego: Emparejamiento SGA</span>
-          <span style="font-size:15px; color:#B3B3B3; display:block; margin-top:4px;">Arrastra cada pictograma al contenedor que describe su peligro.</span>
+        <div class="game-title-block">
+          <span class="game-main-title">Minijuego: Emparejamiento SGA</span>
+          <span class="game-sub-title">Arrastra cada pictograma al contenedor que describe su peligro.</span>
         </div>
 
         <div class="game-container">

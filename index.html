@@ -3294,7 +3294,12 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
         }
       }, 0);
     }
-    Reveal.on('ready', fixGHSSlide);
+    Reveal.on('ready', (event) => {
+      fixGHSSlide();
+      if (event.currentSlide && event.currentSlide.id === 'slide-examen') {
+        reiniciarExamen();
+      }
+    });
     Reveal.on('slidechanged', fixGHSSlide);
     window.addEventListener('resize', fixGHSSlide);
 
@@ -4217,6 +4222,7 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
         </button>
         <div id="exam-feedback-box" class="exam-explanation"></div>
       `;
+      if (typeof Reveal !== 'undefined') Reveal.layout();
     }
 
     function seleccionarOpcionExamen(key) {
@@ -4275,6 +4281,7 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
         feedback.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> ${q.explanation}`;
         feedback.classList.add('incorrect-exp', 'show');
       }
+      if (typeof Reveal !== 'undefined') Reveal.layout();
     }
 
     function siguientePreguntaExamen() {
@@ -4316,6 +4323,7 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
         desc.innerHTML = 'Has obtenido una calificación menor al 80%. Te recomendamos repasar los pictogramas, la estructura de la HDS y las reglas de seguridad antes de intentar la evaluación nuevamente.';
         playBuzzerSound();
       }
+      if (typeof Reveal !== 'undefined') Reveal.layout();
     }
 
     function iniciarTemporizadorExamen() {
@@ -4360,6 +4368,7 @@ CONTEXTO INSTRUCTOR: La Sección 6 de la HDS de SWIPE indica: "No permitir el co
       document.getElementById('exam-results-box').classList.add('hide-element');
       mostrarPreguntaExamen();
       iniciarTemporizadorExamen();
+      if (typeof Reveal !== 'undefined') Reveal.layout();
     }
 
 
